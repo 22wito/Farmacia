@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Despliegue Farmacéutico - 2º DAW (Presentación 30 min)</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-dark: #050b14;
+            --bg-darker: #02060b;
+            --bg-glass: rgba(15, 23, 42, 0.6);
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --neon-blue: #38bdf8;
+            --neon-blue-glow: rgba(56, 189, 248, 0.4);
+            --neon-green: #34d399;
+            --neon-green-glow: rgba(52, 211, 153, 0.4);
+            --neon-red: #fb7185;
+            --neon-red-glow: rgba(251, 113, 133, 0.4);
+            --font-title: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        :root {
+            --bg-dark: #050b14;
+            --bg-darker: #02060b;
+            --bg-glass: rgba(15, 23, 42, 0.6);
+            --border-glass: rgba(255, 255, 255, 0.08);
+
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+
+            --neon-blue: #38bdf8;
+            --neon-blue-glow: rgba(56, 189, 248, 0.4);
+
+            --neon-green: #34d399;
+            --neon-green-glow: rgba(52, 211, 153, 0.4);
+
+            --neon-red: #fb7185;
+            --neon-red-glow: rgba(251, 113, 133, 0.4);
+
+            --font-title: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
+
+            --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-darker);
+            color: var(--text-main);
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .bg-animated {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            background: radial-gradient(circle at 15% 50%, rgba(15, 30, 60, 0.8), transparent 30%),
+                radial-gradient(circle at 85% 30%, rgba(10, 40, 50, 0.6), transparent 30%);
+            animation: breathe 10s infinite alternate;
+        }
+
+        @keyframes breathe {
+            0% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+        }
+
+        .glass-panel {
+            background: var(--bg-glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glass);
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            padding: 3rem;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: var(--font-title);
+            font-weight: 800;
+        }
+
+        .highlight-blue {
+            color: var(--neon-blue);
+            text-shadow: 0 0 15px var(--neon-blue-glow);
+        }
+
+        .highlight-green {
+            color: var(--neon-green);
+            text-shadow: 0 0 15px var(--neon-green-glow);
+        }
+
+        .highlight-red {
+            color: var(--neon-red);
+            text-shadow: 0 0 15px var(--neon-red-glow);
+        }
+
+        .btn {
+            background: transparent;
+            color: var(--text-main);
+            font-family: var(--font-title);
+            font-weight: 600;
+            font-size: 1.2rem;
+            padding: 1rem 2.5rem;
+            border: 2px solid var(--neon-blue);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            box-shadow: 0 0 10px var(--neon-blue-glow) inset, 0 0 10px var(--neon-blue-glow);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn:hover {
+            background: var(--neon-blue);
+            color: var(--bg-darker);
+            box-shadow: 0 0 25px var(--neon-blue-glow) inset, 0 0 25px var(--neon-blue-glow);
+            transform: translateY(-3px);
+        }
+
+        .slide-container {
+            position: relative;
+            flex-grow: 1;
+            width: 100%;
+            height: 100%;
+            perspective: 1500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .slide {
+            position: absolute;
+            width: 90%;
+            max-width: 1300px;
+            height: 85%;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+            transform: translateZ(-200px) translateY(50px) rotateX(-5deg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateZ(0) translateY(0) rotateX(0);
+            z-index: 10;
+        }
+
+        .slide.prev {
+            transform: translateZ(-300px) translateX(-50%) rotateY(15deg);
+            opacity: 0;
+        }
+
+        .slide.next {
+            transform: translateZ(-300px) translateX(50%) rotateY(-15deg);
+            opacity: 0;
+        }
+
+        .controls {
+            position: fixed;
+            bottom: 30px;
+            right: 40px;
+            z-index: 100;
+            display: flex;
+            gap: 15px;
+        }
+
+        .ctrl-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-glass);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .ctrl-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        .progress-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 4px;
+            background: var(--neon-blue);
+            transition: width 0.4s ease;
+            box-shadow: 0 0 10px var(--neon-blue);
+            z-index: 100;
+        }
+
+        .speaker-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: var(--font-title);
+            font-size: 1rem;
+            color: var(--neon-blue);
+            border: 1px solid var(--neon-blue-glow);
+            padding: 8px 20px;
+            border-radius: 20px;
+            background: rgba(56, 189, 248, 0.1);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .timer-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-family: var(--font-title);
+            font-size: 1rem;
+            color: var(--text-muted);
+            padding: 8px 20px;
+            border-radius: 20px;
+        }
+
+        /* Utilidades Slide */
+        .text-center {
+            text-align: center;
+        }
+
+        .text-muted {
+            color: var(--text-muted);
+        }
+
+        .mt-2 {
+            margin-top: 1rem;
+        }
+
+        .mt-4 {
+            margin-top: 2rem;
+        }
+
+        .mb-2 {
+            margin-bottom: 1rem;
+        }
+
+        .mb-4 {
+            margin-bottom: 2rem;
+        }
+
+        /* Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .list-styled {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .list-styled li {
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .list-styled li i {
+            color: var(--neon-blue);
+            font-size: 1.5rem;
+        }
+
+        /* Tarjetas de Persona 1 */
+        .stat-card {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--neon-blue);
+            box-shadow: 0 10px 25px var(--neon-blue-glow);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-family: var(--font-title);
+            font-weight: 800;
+            color: var(--neon-blue);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        /* UI Mockup */
+        .mockup-container {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            background: #1e293b;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .mockup-header {
+            background: #0f172a;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mockup-body {
+            padding: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .patient-info,
+        .recipe-info {
+            background: #334155;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .mockup-btn {
+            background: var(--neon-green);
+            color: #000;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        /* Diagrama Arquitectura */
+        .arch-diagram {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 4rem;
+        }
+
+        .arch-node {
+            background: rgba(15, 23, 42, 0.8);
+            border: 2px solid var(--neon-blue);
+            padding: 2rem;
+            border-radius: 15px;
+            width: 22%;
+            text-align: center;
+        }
+
+        .arch-node i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: var(--neon-blue);
+        }
+
+        .arch-arrow {
+            color: var(--border-glass);
+            font-size: 2rem;
+        }
+
+        /* Fallos/Riesgos */
+        .alert-card {
+            background: rgba(30, 20, 20, 0.8);
+            border: 1px solid rgba(251, 113, 133, 0.3);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: left;
+            border-left: 4px solid var(--neon-red);
+        }
+
+        /* Demo Balanceo */
+        .demo-canvas {
+            background: #0f172a;
+            border-radius: 20px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .demo-users {
+            font-size: 3rem;
+            color: #cbd5e1;
+            margin-bottom: 20px;
+        }
+
+        .demo-proxy {
+            background: rgba(56, 189, 248, 0.2);
+            border: 2px dashed var(--neon-blue);
+            padding: 15px 40px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .demo-servers {
+            display: flex;
+            gap: 40px;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .server-box {
+            width: 180px;
+            height: 140px;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-family: var(--font-title);
+            transition: 0.5s;
+            text-align: center;
+        }
+
+        .server-ok {
+            background: rgba(52, 211, 153, 0.2);
+            border: 2px solid var(--neon-green);
+            color: var(--neon-green);
+            box-shadow: 0 0 15px var(--neon-green-glow);
+        }
+
+        .server-dead {
+            background: rgba(251, 113, 133, 0.2);
+            border: 2px solid var(--neon-red);
+            color: var(--neon-red);
+            transform: scale(0.9) rotate(5deg);
+            opacity: 0.5;
+            box-shadow: 0 0 15px var(--neon-red-glow);
+        }
+
+        .traffic-line {
+            position: absolute;
+            width: 2px;
+            background: var(--neon-green);
+            top: 140px;
+            height: 40px;
+            z-index: 1;
+            box-shadow: 0 0 10px var(--neon-green);
+        }
+
+        /* Quiz Modules */
+        .quiz-container {
+            max-width: 900px;
+            margin: 30px auto;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .quiz-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: 0.3s;
+            text-align: left;
+        }
+
+        .quiz-btn:hover {
+            background: rgba(56, 189, 248, 0.2);
+            border-color: var(--neon-blue);
+        }
+
+        .shake {
+            animation: shake 0.5s cubic-bezier(.36, .07, .19, .97) both;
+        }
+
+        @keyframes shake {
+
+            10%,
+            90% {
+                transform: translate3d(-1px, 0, 0);
+            }
+
+            20%,
+            80% {
+                transform: translate3d(2px, 0, 0);
+            }
+
+            30%,
+            50%,
+            70% {
+                transform: translate3d(-4px, 0, 0);
+            }
+
+            40%,
+            60% {
+                transform: translate3d(4px, 0, 0);
+            }
+        }
+
+        /* Speakers notes hint */
+        .notes-hint {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 30px;
+            border-left: 3px solid var(--neon-blue);
+            font-size: 0.95rem;
+            color: #cbd5e1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="bg-animated"></div>
+    <div class="progress-bar" id="progressBar" style="width: 0%;"></div>
+
+    <!-- Controles -->
+    <div class="controls">
+        <button class="ctrl-btn" onclick="prevSlide()" title="Anterior (Flecha Izquierda)"><i
+                class="fas fa-chevron-left"></i></button>
+        <button class="ctrl-btn" onclick="nextSlide()" title="Siguiente (Flecha Derecha)"><i
+                class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <!-- TODAS LAS DIAPOSITIVAS (20 slides, ~30 mins) -->
+    <div class="slide-container">
+
+        <!-- ====================== PERSONA 1 (0-5 MINS) ====================== -->
+
+        <!-- Slide 1: Portada -->
+        <section class="slide active">
+            <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 1: Marco del Proyecto</div>
+            <div class="timer-badge">~ 1 min</div>
+
+            <div class="glass-panel text-center" style="padding: 5rem 3rem;">
+                <p
+                    style="text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px; color: var(--neon-green);">
+                    Despliegue de Aplicaciones Web</p>
+                <h1 class="highlight-blue" style="font-size: 5rem; margin-bottom: 20px; line-height: 1.1;">Impacto
+                    Crítico del Despliegue<br>en Sistemas Farmacéuticos</h1>
+                <p style="font-size: 1.5rem; color: var(--text-muted); margin-bottom: 50px;">Un error técnico cuesta
+                    vidas. La tecnología que nos sostiene.</p>
+                <button class="btn" onclick="nextSlide()">
+                    Iniciar Presentación <i class="fas fa-play"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Slide 2: El Sector Farmacéutico -->
+        <section class="slide">
+            <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 1: Marco del Proyecto</div>
+            <div class="timer-badge">~ 2 min</div>
+
+            <h2 class="text-center highlight-blue" style="font-size: 3.5rem;">El Sector Farmacéutico de Hoy</h2>
+            <p class="text-center text-muted mb-4" style="font-size: 1.3rem;">Ya no son pequeñas tiendas de barrio, son
+                terminales sanitarias de alta disponibilidad.</p>
+
+            <div class="grid-3 mt-4">
+                <div class="stat-card">
+                    <i class="fas fa-file-waveform mb-2" style="font-size: 2rem; color: var(--text-muted);"></i>
+                    <div class="stat-number">100%</div>
+                    <h3>Receta Electrónica</h3>
+                    <p class="text-muted mt-2">Dependencia total de la validación del estado por internet. Si no hay
+                        conexión, paciente sin medicación.</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-cubes mb-2" style="font-size: 2rem; color: var(--text-muted);"></i>
+                    <div class="stat-number">24h</div>
+                    <h3>Rotación de Stock</h3>
+                    <p class="text-muted mt-2">Los mayoristas reponen pedidos diariamente. El software debe
+                        sincronizarse perfectamente en tiempo real.</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-gavel mb-2" style="font-size: 2rem; color: var(--text-muted);"></i>
+                    <div class="stat-number">LOPD</div>
+                    <h3>Privacidad Crítica</h3>
+                    <p class="text-muted mt-2">Datos de tratamientos psiquiátricos, oncológicos e históricos médicos en
+                        las bases de datos de dispensación.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: El Reto y los Riesgos -->
+        <section class="slide">
+            <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 1: Marco del Proyecto</div>
+            <div class="timer-badge">~ 2 min</div>
+
+            <div class="glass-panel text-center">
+                <h2>El Reto Tecnológico Real</h2>
+                <div class="notes-hint text-left">
+                    <strong>Puntos de exposición (Guía Ponente 1):</strong>
+                    <ul class="list-styled">
+                        <li><i class="fas fa-times-circle"></i> Un farmacéutico no puede permitirse que la web responda
+                            lento <em>(impacta en las colas de las farmacias)</em>.</li>
+                        <li><i class="fas fa-times-circle"></i> No es un e-commerce. Si Amazon se cae, pierdes ventas;
+                            si esto se cae, <strong>al margen del negocio, hay un riesgo de salud pública</strong>.</li>
+                        <li><i class="fas fa-arrow-right"></i> Por ello, diseñamos "PharmaSys Pro" pensado 100% para ser
+                            desplegado bajo metodologías infalibles de DAW.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================== PERSONA 2 (5-10 MINS) ====================== -->
+
+        <!-- Slide 4: Presentación de PharmaSys -->
+        <section class="slide">
+            <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 2: La Solución (Aplicación)</div>
+            <div class="timer-badge">~ 1.5 min</div>
+
+            <h2 class="text-center highlight-blue" style="font-size: 3rem;">PharmaSys Pro</h2>
+            <p class="text-center text-muted mb-4">La solución de software diseñada por y para la dispensación ágil.</p>
+
+            <div class="grid-2">
+                <div class="glass-panel">
+                    <h3>¿Qué es y qué resolvemos?</h3>
+                    <ul class="list-styled mt-4">
+                        <li><i class="fas fa-check-circle"></i> Aplicación Web de gestión de pacientes.</li>
+                        <li><i class="fas fa-check-circle"></i> Interfaz directa a los servidores de la Seguridad Social
+                            del Estado.</li>
+                        <li><i class="fas fa-check-circle"></i> Integración paralela con bases de datos de almacén.</li>
+                        <li><i class="fas fa-bolt"></i> Desarrollado sobre un stack web moderno y ligero.</li>
+                    </ul>
+                </div>
+                <div class="text-center" style="display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-laptop-medical highlight-green"
+                        style="font-size: 15rem; filter: drop-shadow(0 0 30px rgba(52, 211, 153, 0.4));"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5: El Mockup UI Clínico -->
+        <section class="slide">
+            <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 2: La Solución (Aplicación)</div>
+            <div class="timer-badge">~ 2 min</div>
+
+            <h2 class="text-center mb-4">Interfaz del Operador (UI/UX)</h2>
+            <div class="mockup-container" style="max-width: 900px; margin: 0 auto;">
+                <div class="mockup-header">
+                    <div style="font-weight: bold; color: var(--neon-blue);"><i class="fas fa-plus-square"></i>
+                        PharmaSys Pro v2.4</div>
+                    <div style="color: #94a3b8; font-size: 0.9rem;">Operador: Titular de Farmacia</div>
+                </div>
+                <div class="mockup-body">
+                    <div class="patient-info">
+                        <h4 style="color: var(--text-muted); margin-bottom: 15px;">DNI Paciente: 0987445-X</h4>
+                        <p><strong>Estado Tarjeta Sanit.:</strong> <span class="highlight-green">Verificado O.K.</span>
+                        </p>
+                        <p class="mt-4 mb-2"><strong>Tratamiento Pendiente de Retirada:</strong></p>
+                        <ul style="margin-left: 20px; color: #cbd5e1; font-size: 1.1rem; line-height: 1.5;">
+                            <li><i class="fas fa-pills" style="color: var(--neon-blue);"></i> Sintrom (Acenocumarol) 4mg
+                            </li>
+                            <li><i class="fas fa-pills" style="color: var(--neon-blue);"></i> Metformina 850mg comp.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="recipe-info">
+                        <h4 style="color: var(--text-muted); margin-bottom: 10px;">Lectura de Código de Barras</h4>
+                        <div
+                            style="background: rgba(0,0,0,0.3); padding: 25px; border-radius: 5px; text-align: center; border: 1px dashed #64748b;">
+                            <i class="fas fa-barcode" style="font-size: 3rem; color: #94a3b8; margin-bottom: 15px;"></i>
+                            <p id="mockupStatusText">Esperando escaneo de producto...</p>
+                        </div>
+                        <button class="mockup-btn" id="simulateValidationBtn" onclick="simulateAppLoad()"
+                            style="font-size: 1.2rem; padding: 15px;">
+                            <i class="fas fa-crosshairs"></i> Validar Dispensación
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: El proceso por detrás -->
+        <section class="slide">
+            <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 2: La Solución (Aplicación)</div>
+            <div class="timer-badge">~ 1.5 min</div>
+
+            <div class="glass-panel text-center">
+                <h2>¿Qué pasa al pulsar ese botón?</h2>
+                <div class="notes-hint text-left">
+                    <strong>Recorrido del dato (Guía Ponente 2):</strong>
+                    <ul class="list-styled">
+                        <li>1️⃣ El botón ejecuta JavaScript que lanza una petición AJAX/API hacia nuestro servidor
+                            backend.</li>
+                        <li>2️⃣ Nuestro backend envía un ping al Ministerio de Sanidad para anular la receta y validar
+                            la compra.</li>
+                        <li>3️⃣ Resta el stock de nuestra Base de Datos (SQL/NoSQL) de la farmacia local.</li>
+                        <li><strong>Conclusión:</strong> El software es la punta del iceberg. Sin una infraestructura
+                            que soporte los millones de peticiones por segundo (Despliegue DAW), la interfaz más bonita
+                            del mundo no sirve de nada.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================== PERSONA 3 (10-15 MINS) ====================== -->
+
+        <!-- Slide 7: Desmitificando el Despliegue -->
+        <section class="slide">
+            <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 3: Arquitectura Técnica</div>
+            <div class="timer-badge">~ 1.5 min</div>
+
+            <h2 class="text-center highlight-blue" style="font-size: 3.5rem;">Arquitectura del Sistema</h2>
+            <p class="text-center text-muted mb-4" style="font-size: 1.2rem;">Traduciendo el Despliegue Técnico a
+                Conceptos Físicos</p>
+
+            <div class="arch-diagram mt-4">
+                <div class="arch-node"><i class="fab fa-linux"></i>
+                    <h3>Sistema Operativo<br>(Linux)</h3>
+                </div>
+                <i class="fas fa-arrow-right arch-arrow"></i>
+                <div class="arch-node" style="border-color: var(--neon-green);"><i class="fas fa-network-wired"
+                        style="color: var(--neon-green);"></i>
+                    <h3>Proxy Inverso<br>(Nginx)</h3>
+                </div>
+                <i class="fas fa-arrow-right arch-arrow"></i>
+                <div class="arch-node"><i class="fab fa-docker"></i>
+                    <h3>Contenedores<br>(Docker)</h3>
+                </div>
+                <i class="fas fa-arrow-right arch-arrow"></i>
+                <div class="arch-node" style="border-color: var(--neon-red);"><i class="fas fa-database"
+                        style="color: var(--neon-red);"></i>
+                    <h3>Persistencia<br>(BBDD)</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 8: Análisis de Componentes Físicos -->
+        <section class="slide">
+            <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 3: Arquitectura Técnica</div>
+            <div class="timer-badge">~ 2 min</div>
+
+            <h2 class="text-center mb-4">El Motor: Linux y Docker</h2>
+            <div class="grid-2">
+                <div class="glass-panel">
+                    <h3 class="highlight-blue mb-2"><i class="fab fa-linux"></i> El Servidor (Linux)</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.6;">Es el "edificio blindado" de la farmacia. Se elige
+                        Linux (como Ubuntu Server) por su robustez, seguridad demostrada en servidores web y gestión
+                        eficaz de recursos (RAM/CPU) en entornos críticos sin parches sorpresa que reinicien el sistema
+                        a las 11:00 AM.</p>
+                </div>
+                <div class="glass-panel" style="border-color: var(--neon-blue);">
+                    <h3 class="highlight-blue mb-2"><i class="fab fa-docker"></i> Contenerización (Docker)</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.6;">Son los <strong>"armarios estancos"</strong>.
+                        Aislamos el software de recetas, del software de stock, del software de RRHH de la farmacia. Si
+                        el programa de RRHH falla o sufre un bug catastrófico, el contenedor de las recetas electrónicas
+                        ni se inmuta al estar encapsulado.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 9: Tráfico y Seguridad -->
+        <section class="slide">
+            <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 3: Arquitectura Técnica</div>
+            <div class="timer-badge">~ 1.5 min</div>
+
+            <div class="glass-panel">
+                <h2 class="highlight-green mb-4"><i class="fas fa-shield-halved"></i> Gestión de Tráfico y Seguridad
+                </h2>
+                <div class="notes-hint text-left">
+                    <strong>Puntos Clave (Guía Ponente 3):</strong>
+                    <ul class="list-styled">
+                        <li><strong>Nginx (El recepcionista):</strong> Recibe las miles de conexiones desde las
+                            distintas cajas registradoras y las envía ordenadamente a los contenedores Docker para
+                            evitar que el servidor se ahogue (balanceo).</li>
+                        <li><strong>Seguridad por Variables (.env):</strong> Las contraseñas para conectarse con el
+                            Ministerio NO ESTÁN en el código HTML o JS de los desarrolladores. Se inyectan externamente
+                            en el entorno del servidor para que nadie pueda robarlas.</li>
+                        <li><strong>Cifrado (HTTPS):</strong> Uso de certificados SSL (Let's Encrypt). Obligatorio para
+                            que si alguien hace <em>sniffing</em> en el Wi-fi local, no lea que DNI retiró
+                            antidepresivos.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================== PERSONA 4 (15-20 MINS) ====================== -->
+
+        <!-- Slide 10: ¿Qué ocurre con un Error 500? -->
+        <section class="slide">
+            <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 4: El Impacto Daw</div>
+            <div class="timer-badge">~ 1.5 min</div>
+
+            <div class="text-center" style="margin-top: 5rem;">
+                <i class="fas fa-triangle-exclamation"
+                    style="font-size: 6rem; color: var(--neon-red); margin-bottom: 20px; animation: pulseAlert 2s infinite;"></i>
+                <h1 class="highlight-red" style="font-size: 4rem;">¿Y si ocurre un Error 500?</h1>
+                <p class="text-muted mt-4" style="font-size: 1.8rem;">Internal Server Error</p>
+
+                <div class="glass-panel mt-4"
+                    style="background: rgba(251, 113, 133, 0.1); border-color: var(--neon-red); margin-top: 50px;">
+                    <p style="font-size: 1.5rem; line-height: 1.5;">Un "Código Bugueado" en una web corporativa solo
+                        causa pérdida de clientes.<br>
+                        <strong>Un "Código Bugueado" en farmacia interrumpe la toma de medicación vital de miles de
+                            ciudadanos en la comunidad.</strong>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 11: Plan de Contingencia DAW -->
+        <section class="slide">
+            <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 4: El Impacto Daw</div>
+            <div class="timer-badge">~ 2 min</div>
+
+            <h2 class="text-center highlight-blue mb-4">Medidas Críticas de DAW</h2>
+            <div class="grid-2">
+                <div class="alert-card" style="border-left-color: var(--neon-blue);">
+                    <i class="fas fa-clock mb-2" style="font-size: 2.5rem; color: var(--neon-blue);"></i>
+                    <h3 class="mb-2">Disponibilidad 99.99% (Alta Disponibilidad)</h3>
+                    <p style="font-size: 1.1rem; color: #cbd5e1;">Aprovechamos Docker Compose y orquestadores para
+                        levantar inmediatamente un contenedor idéntico si el original muere por memoria saturada.</p>
+                </div>
+                <div class="alert-card" style="border-left-color: var(--neon-green);">
+                    <i class="fas fa-database mb-2" style="font-size: 2.5rem; color: var(--neon-green);"></i>
+                    <h3 class="mb-2">Estrategia de Backups y CRON</h3>
+                    <p style="font-size: 1.1rem; color: #cbd5e1;">Tareas automatizadas en el servidor (Cronjobs) que
+                        diariamente hacen un volcado seguro de la base de datos a un disco externo físico por si hubiese
+                        un ataque Ransomware.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 12: Entornos -->
+        <section class="slide">
+            <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 4: El Impacto Daw</div>
+            <div class="timer-badge">~ 1.5 min</div>
+
+            <div class="glass-panel">
+                <h2 class="text-center highlight-green mb-4">La Barrera: Entornos (Prod vs Dev)</h2>
+                <div class="notes-hint text-left">
+                    <strong>Explicar al aula:</strong>
+                    <ul class="list-styled">
+                        <li>¿Por qué caen páginas vitales estatales? A menudo porque un desarrollador subió código "para
+                            probar".</li>
+                        <li><strong>Entorno Desarrollo:</strong> El PC del programador (con bases de datos inventadas,
+                            "John Doe").</li>
+                        <li><strong>Entorno Staging (Pruebas):</strong> Un servidor idéntico al real donde revisa el
+                            titular de farmacia, aislado.</li>
+                        <li><strong>Entorno Producción:</strong> El servidor final. <strong>NUNCA</strong> se toca
+                            código aquí a mano, solo se hace despliegue por pipelines (CI/CD) automáticos y seguros.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================== PERSONA 5 (20-25 MINS) ====================== -->
+
+        <!-- Slide 13: La Resiliencia -->
+        <section class="slide">
+            <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 5: Simulación (Demo)</div>
+            <div class="timer-badge">~ 2 min</div>
+
+            <h2 class="text-center highlight-blue mb-4" style="font-size: 3.5rem;">Concepto de Resiliencia Informatica
+            </h2>
+            <div class="glass-panel text-center">
+                <i class="fas fa-heart-pulse highlight-red mb-4" style="font-size: 6rem;"></i>
+                <p style="font-size: 1.8rem; line-height: 1.6;">"Es la capacidad del ecosistema de software (nuestro
+                    backend y despliegue) de absorber, resistir y recuperarse instantáneamente ante un fallo inminente."
+                </p>
+                <p class="mt-4 text-muted" style="font-size: 1.3rem;">Vamos a probar qué pasa si borramos de un plumazo
+                    el corazón de nuestra aplicación delante de todos los terminales.</p>
+            </div>
+        </section>
+
+        <!-- Slide 14: LA DEMO INTERACTIVA -->
+        <section class="slide">
+            <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 5: Simulación (Demo)</div>
+            <div class="timer-badge">~ 3 min</div>
+
+            <h2 class="text-center">Simulación Visual: <span class="highlight-green">Balanceo de Carga Nginx +
+                    Docker</span></h2>
+
+            <div class="demo-canvas mt-4">
+                <i class="fas fa-users demo-users" title="Ordenadores de las cajas vendiendo medicamentos"></i>
+                <div class="demo-proxy">
+                    <i class="fas fa-network-wired" style="color: var(--neon-blue); margin-right: 10px;"></i> Nginx
+                    Proxy Activo (Redirigiendo Peticiones)
+                </div>
+
+                <div class="traffic-line line-1" id="trafficLine1" style="left: 30%;"></div>
+                <div class="traffic-line line-1" id="trafficLine2" style="right: 30%; display: none;"></div>
+
+                <div class="demo-servers">
+                    <div class="server-box server-ok" id="server1">
+                        <i class="fab fa-docker" style="font-size: 2.5rem; margin-bottom: 10px;"></i>
+                        Contenedor A<br><small>(Nodo Principal)</small>
+                    </div>
+                    <div class="server-box server-ok" id="server2"
+                        style="opacity: 0.3; border-color: #475569; color: #475569; box-shadow: none;">
+                        <i class="fab fa-docker" style="font-size: 2.5rem; margin-bottom: 10px;"></i>
+                        Contenedor B<br><small>(Backup Standby)</small>
+                    </div>
+                </div>
+
+                <div class="mt-4"
+                    style="width: 100%; display: flex; justify-content: center; gap: 20px; margin-top: 60px;">
+                    <button class="btn btn-red" onclick="simulateCrash()" id="crashBtn">
+                        <i class="fas fa-bomb"></i> Forzar Caída del Nodo Principal
+                    </button>
+                    <button class="btn" onclick="resetDemo()" id="resetBtn" style="display: none;">
+                        <i class="fas fa-sync"></i> Reconstruir Infraestructura
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================== PERSONA 6 (25-30 MINS) ====================== -->
+
+        <!-- Slide 15: Instrucciones Dinámica -->
+        <section class="slide">
+            <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 6: Dinámica Interactiva y Cierre</div>
+            <div class="timer-badge">~ 1 min</div>
+
+            <div class="text-center glass-panel">
+                <h1 class="highlight-blue" style="font-size: 4rem;"><i class="fas fa-gamepad"></i> Dinámica de
+                    Evaluación</h1>
+                <p class="text-muted mt-4" style="font-size: 1.5rem;">Vamos a comprobar quién ha estado prestando
+                    atención al despliegue crítico de la salud pública.</p>
+                <div class="notes-hint text-center mt-4">
+                    Instrucciones: Se presentarán 3 problemas. Cada uno en la clase levantad la mano o responded en voz
+                    alta según la opción que creáis correcta.
+                </div>
+                <button class="btn mt-4" onclick="nextSlide()" style="font-size: 1.5rem;">
+                    ¡Empezar Quiz! <i class="fas fa-rocket"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Slide 16: Pregunta 1 -->
+        <section class="slide" id="sl-q1">
+            <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 6: Dinámica (Pregunta 1/3)</div>
+            <div class="quiz-container text-center">
+                <h2 style="font-size: 2.5rem; margin-bottom: 30px;">Pregunta 1</h2>
+                <div class="glass-panel" style="padding: 2rem;">
+                    <h3 style="font-size: 1.6rem; color: var(--neon-blue); margin-bottom: 25px;">Según la arquitectura
+                        explicada, ¿quién actúa como el "armario estanco" evitando que si explota una parte del programa
+                        arrastre a las demás?</h3>
+                    <div class="options-grid" id="q1-options">
+                        <button class="quiz-btn" onclick="checkBtn(this, false, 'q1-options')">A) El Servidor Ubuntu
+                            (Linux)</button>
+                        <button class="quiz-btn" onclick="checkBtn(this, true, 'q1-options')">B) Los Contenedores Docker
+                            virtualizados</button>
+                        <button class="quiz-btn" onclick="checkBtn(this, false, 'q1-options')">C) La base de datos
+                            MySQL</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 17: Pregunta 2 -->
+        <section class="slide" id="sl-q2">
+            <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 6: Dinámica (Pregunta 2/3)</div>
+            <div class="quiz-container text-center">
+                <h2 style="font-size: 2.5rem; margin-bottom: 30px;">Pregunta 2</h2>
+                <div class="glass-panel" style="padding: 2rem;">
+                    <h3 style="font-size: 1.6rem; color: var(--neon-blue); margin-bottom: 25px;">En la simulación
+                        anterior, ¿gracias a QUÉ tecnología podemos derivar el tráfico automáticamente al Contenedor 2
+                        si rompe el 1?</h3>
+                    <div class="options-grid" id="q2-options">
+                        <button class="quiz-btn" onclick="checkBtn(this, true, 'q2-options')">A) El Proxy Inverso
+                            Servidor Nginx (Balanceo)</button>
+                        <button class="quiz-btn" onclick="checkBtn(this, false, 'q2-options')">B) El archivo .env
+                            (Variables de Entorno)</button>
+                        <button class="quiz-btn" onclick="checkBtn(this, false, 'q2-options')">C) El Frontend hecho con
+                            HTML/JavaScript</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 18: Pregunta 3 -->
+        <section class="slide" id="sl-q3">
+            <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 6: Dinámica (Pregunta 3/3)</div>
+            <div class="quiz-container text-center">
+                <h2 style="font-size: 2.5rem; margin-bottom: 30px;">Pregunta 3</h2>
+                <div class="glass-panel" style="padding: 2rem;">
+                    <h3 style="font-size: 1.6rem; color: var(--neon-blue); margin-bottom: 25px;">La regla de oro de los
+                        entornos dice que el desarrollador Junior NUNCA debe tocar directamente el entorno de...</h3>
+                    <div class="options-grid" id="q3-options">
+                        <button class="quiz-btn" onclick="checkBtn(this, false, 'q3-options')">A) Entorno Local /
+                            Desarrollo</button>
+                        <button class="quiz-btn" onclick="checkBtn(this, false, 'q3-options')">B) Entorno de Staging
+                            (Pruebas)</button>
+                        <button class="quiz-btn" onclick="checkBtn(this, true, 'q3-options')">C) Entorno de Producción
+                            Final (Usuarios reales)</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 19: Cierre -->
+        <section class="slide">
+            <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 6: Dinámica Interactiva y Cierre</div>
+
+            <div class="glass-panel text-center">
+                <i class="fas fa-check-double highlight-green" style="font-size: 6rem; margin-bottom: 20px;"></i>
+                <h1 class="highlight-blue" style="font-size: 5rem; margin-bottom: 10px;">Despliegue = Responsabilidad
+                </h1>
+                <p class="text-muted mt-4 mb-4" style="font-size: 1.5rem;">Cualquiera puede programar botones bonitos.
+                    Solo un ingeniero de software asegura que esos botones funcionen cuando importan.</p>
+                <h2 class="mt-4">¿Alguien tiene alguna pregunta?</h2>
+                <div class="mt-4">
+                    <button class="btn mt-4" onclick="alert('Equipo: 6 personas - Módulo DAW - ¡Fin!')">Fin de
+                        Presentación</button>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- SCRIPT / FUNCIONALIDADES -->
+    <script>
+        // Sistema Base Navigation (19 Slides)
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const progressBar = document.getElementById('progressBar');
+
+        function updateSlides() {
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active', 'prev', 'next');
+                if (index === currentSlide) {
+                    slide.classList.add('active');
+                } else if (index < currentSlide) {
+                    slide.classList.add('prev');
+                } else {
+                    slide.classList.add('next');
+                }
+            });
+            progressBar.style.width = ((currentSlide + 1) / slides.length) * 100 + '%';
+        }
+
+        function nextSlide() { if (currentSlide < slides.length - 1) { currentSlide++; updateSlides(); } }
+        function prevSlide() { if (currentSlide > 0) { currentSlide--; updateSlides(); } }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); nextSlide(); }
+            else if (e.key === 'ArrowLeft') { e.preventDefault(); prevSlide(); }
+        });
+
+        // -------------------------
+        // UI Mockup Logic
+        // -------------------------
+        function simulateAppLoad() {
+            const btn = document.getElementById('simulateValidationBtn');
+            const txt = document.getElementById('mockupStatusText');
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Conectando al Ministerio...';
+            btn.style.background = '#eab308'; // amarillo
+            txt.innerHTML = 'Enviando JSON Seguro...';
+
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fas fa-check-double"></i> Dispensado (Stock Actualizado)';
+                btn.style.background = 'var(--neon-blue)';
+                txt.innerHTML = '<span class="highlight-green">Receta anulada y validada en Sanidad.</span>';
+
+                setTimeout(() => {
+                    btn.innerHTML = '<i class="fas fa-crosshairs"></i> Validar Dispensación';
+                    btn.style.background = 'var(--neon-green)';
+                    txt.innerHTML = 'Esperando escaneo de producto...';
+                }, 4000);
+            }, 2500);
+        }
+
+        // -------------------------
+        // Crash Demo Logic
+        // -------------------------
+        let isCrashed = false;
+        function simulateCrash() {
+            if (isCrashed) return;
+            isCrashed = true;
+
+            const server1 = document.getElementById('server1');
+            const server2 = document.getElementById('server2');
+            const line1 = document.getElementById('trafficLine1');
+            const line2 = document.getElementById('trafficLine2');
+            const btn = document.getElementById('crashBtn');
+
+            btn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Fallo de Hardware 500';
+            btn.style.opacity = '0.5'; btn.style.pointerEvents = 'none';
+
+            server1.className = 'server-box server-dead';
+            server1.innerHTML = '<i class="fas fa-skull-crossbones" style="font-size: 2.5rem; margin-bottom: 10px;"></i> Contenedor<br>(Caído / Muerto)';
+            line1.style.background = 'var(--neon-red)';
+            line1.style.boxShadow = '0 0 10px var(--neon-red)';
+
+            // Auto-recovery by Proxy Nginx
+            setTimeout(() => {
+                line1.style.display = 'none';
+
+                // Activar Server 2
+                server2.style.opacity = '1';
+                server2.className = 'server-box server-ok';
+                server2.border = '2px solid var(--neon-green)';
+                line2.style.display = 'block';
+
+                // Mostrar Info recovery
+                let div = document.createElement('div');
+                div.id = 'recoveryMessage';
+                div.style.position = 'absolute'; div.style.bottom = '20px'; div.style.left = '50%'; div.style.transform = 'translateX(-50%)';
+                div.style.background = 'rgba(52, 211, 153, 0.2)'; div.style.padding = '10px 20px'; div.style.borderRadius = '20px';
+                div.style.color = 'var(--neon-green)'; div.style.fontWeight = 'bold';
+                div.innerHTML = '<i class="fas fa-shield-check"></i> Tráfico Balaceado a Contenedor 2 (Tiempo Caída: 0.1s)';
+                document.querySelector('.demo-canvas').appendChild(div);
+
+                document.getElementById('resetBtn').style.display = 'inline-flex';
+            }, 1500);
+        }
+
+        function resetDemo() {
+            isCrashed = false;
+            document.getElementById('server1').className = 'server-box server-ok';
+            document.getElementById('server1').innerHTML = '<i class="fab fa-docker" style="font-size: 2.5rem; margin-bottom: 10px;"></i> Contenedor A<br><small>(Nodo Principal)</small>';
+
+            document.getElementById('server2').className = 'server-box server-ok';
+            document.getElementById('server2').style.opacity = '0.3';
+            document.getElementById('server2').style.borderColor = '#475569';
+            document.getElementById('server2').innerHTML = '<i class="fab fa-docker" style="font-size: 2.5rem; margin-bottom: 10px;"></i> Contenedor B<br><small>(Backup Standby)</small>';
+            document.getElementById('server2').style.boxShadow = 'none';
+
+            document.getElementById('trafficLine1').style.display = 'block';
+            document.getElementById('trafficLine1').style.background = 'var(--neon-green)';
+            document.getElementById('trafficLine1').style.boxShadow = '0 0 10px var(--neon-green)';
+            document.getElementById('trafficLine2').style.display = 'none';
+
+            const btn = document.getElementById('crashBtn');
+            btn.innerHTML = '<i class="fas fa-bomb"></i> Forzar Caída del Nodo Principal';
+            btn.style.opacity = '1'; btn.style.pointerEvents = 'all';
+
+            document.getElementById('resetBtn').style.display = 'none';
+            let msg = document.getElementById('recoveryMessage');
+            if (msg) msg.remove();
+        }
+
+        // -------------------------
+        // Quiz System
+        // -------------------------
+        function checkBtn(btn, isCorrect, groupId) {
+            const group = document.getElementById(groupId);
+            const buttons = group.querySelectorAll('button');
+
+            buttons.forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
+
+            if (isCorrect) {
+                btn.style.background = 'rgba(52, 211, 153, 0.2)';
+                btn.style.borderColor = 'var(--neon-green)';
+                btn.style.color = 'var(--neon-green)';
+                btn.innerHTML += ' <i class="fas fa-check-circle" style="float: right;"></i>';
+            } else {
+                btn.classList.add('shake');
+                btn.style.background = 'rgba(251, 113, 133, 0.2)';
+                btn.style.borderColor = 'var(--neon-red)';
+                btn.style.color = 'var(--neon-red)';
+                btn.innerHTML += ' <i class="fas fa-times-circle" style="float: right;"></i>';
+
+                // Show right answer
+                buttons.forEach(b => {
+                    if (b.onclick.toString().includes('true')) {
+                        b.style.borderColor = 'var(--neon-green)';
+                        b.style.color = 'var(--neon-green)';
+                    }
+                });
+            }
+        }
+
+    </script>
+</body>
+
+</html>
