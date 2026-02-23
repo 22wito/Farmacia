@@ -895,29 +895,6 @@
             </div>
         </section>
 
-        <!-- Slide 8: Análisis de Componentes Físicos -->
-        <section class="slide">
-            <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 3: Arquitectura Técnica</div>
-
-
-            <h2 class="text-center mb-4">El Motor: Linux y Docker</h2>
-            <div class="grid-2">
-                <div class="glass-panel">
-                    <h3 class="highlight-blue mb-2"><i class="fab fa-linux"></i> El Servidor (Linux)</h3>
-                    <p style="font-size: 1.1rem; line-height: 1.6;">Es el "edificio blindado" de la farmacia. Se elige
-                        Linux (como Ubuntu Server) por su robustez, seguridad demostrada en servidores web y gestión
-                        eficaz de recursos (RAM/CPU) en entornos críticos sin parches sorpresa que reinicien el sistema
-                        a las 11:00 AM.</p>
-                </div>
-                <div class="glass-panel" style="border-color: var(--neon-blue);">
-                    <h3 class="highlight-blue mb-2"><i class="fab fa-docker"></i> Contenerización (Docker)</h3>
-                    <p style="font-size: 1.1rem; line-height: 1.6;">Son los <strong>"armarios estancos"</strong>.
-                        Aislamos el software de recetas, del software de stock, del software de RRHH de la farmacia. Si
-                        el programa de RRHH falla o sufre un bug catastrófico, el contenedor de las recetas electrónicas
-                        ni se inmuta al estar encapsulado.</p>
-                </div>
-            </div>
-        </section>
 
         <!-- Slide 9: Tráfico y Seguridad -->
         <section class="slide">
@@ -933,9 +910,6 @@
                         <li><strong>Nginx (El recepcionista):</strong> Recibe las miles de conexiones desde las
                             distintas cajas registradoras y las envía ordenadamente a los contenedores Docker para
                             evitar que el servidor se ahogue (balanceo).</li>
-                        <li><strong>Seguridad por Variables (.env):</strong> Las contraseñas para conectarse con el
-                            Ministerio NO ESTÁN en el código HTML o JS de los desarrolladores. Se inyectan externamente
-                            en el entorno del servidor para que nadie pueda robarlas.</li>
                         <li><strong>Cifrado (HTTPS):</strong> Uso de certificados SSL (Let's Encrypt). Obligatorio para
                             que si alguien hace <em>sniffing</em> en el Wi-fi local, no lea que DNI retiró
                             antidepresivos.</li>
@@ -945,28 +919,6 @@
         </section>
 
         <!-- ====================== PERSONA 4 (15-20 MINS) ====================== -->
-
-        <!-- Slide 10: ¿Qué ocurre con un Error 500? -->
-        <section class="slide">
-            <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 4: El Impacto Daw</div>
-
-
-            <div class="text-center" style="margin-top: 5rem;">
-                <i class="fas fa-triangle-exclamation"
-                    style="font-size: 6rem; color: var(--neon-red); margin-bottom: 20px; animation: pulseAlert 2s infinite;"></i>
-                <h1 class="highlight-red" style="font-size: 4rem;">¿Y si ocurre un Error 500?</h1>
-                <p class="text-muted mt-4" style="font-size: 1.8rem;">Internal Server Error</p>
-
-                <div class="glass-panel mt-4"
-                    style="background: rgba(251, 113, 133, 0.1); border-color: var(--neon-red); margin-top: 50px;">
-                    <p style="font-size: 1.5rem; line-height: 1.5;">Un "Código Bugueado" en una web corporativa solo
-                        causa pérdida de clientes.<br>
-                        <strong>Un "Código Bugueado" en farmacia interrumpe la toma de medicación vital de miles de
-                            ciudadanos en la comunidad.</strong>
-                    </p>
-                </div>
-            </div>
-        </section>
 
         <!-- Slide 11: Plan de Contingencia DAW -->
         <section class="slide">
@@ -1251,19 +1203,26 @@
 
         <!-- Slide 19: Cierre -->
         <section class="slide">
-            <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 6: Dinámica Interactiva y Cierre</div>
+            <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 6: Cierre</div>
 
-            <div class="glass-panel text-center">
-                <i class="fas fa-check-double highlight-green" style="font-size: 6rem; margin-bottom: 20px;"></i>
-                <h1 class="highlight-blue" style="font-size: 5rem; margin-bottom: 10px;">Despliegue = Responsabilidad
+            <div class="glass-panel text-center" style="max-width: 800px; margin: 0 auto; padding: 3rem 2rem;">
+                <i class="fas fa-check-circle highlight-green" style="font-size: 4rem; margin-bottom: 15px;"></i>
+
+                <h1 class="highlight-blue" style="font-size: 3rem; margin-bottom: 15px;">
+                    Despliegue = Responsabilidad
                 </h1>
-                <p class="text-muted mt-4 mb-4" style="font-size: 1.5rem;">Cualquiera puede programar botones bonitos.
-                    Solo un ingeniero de software asegura que esos botones funcionen cuando importan.</p>
-                <h2 class="mt-4">¿Alguien tiene alguna pregunta?</h2>
-                <div class="mt-4">
-                    <button class="btn mt-4" onclick="alert('Equipo: 6 personas - Módulo DAW - ¡Fin!')">Fin de
-                        Presentación</button>
-                </div>
+
+                <p style="font-size: 1.3rem; color: #cbd5e1; margin-bottom: 30px;">
+                    "Cualquiera puede programar interfaces bonitas. Solo un ingeniero asegura que el sistema funcione
+                    cuando una vida depende de ello."
+                </p>
+
+                <h2 style="font-size: 1.5rem; color: var(--text-muted); margin-bottom: 25px;">¿Preguntas?</h2>
+
+                <button class="btn" style="padding: 0.8rem 2rem; font-size: 1rem;"
+                    onclick="alert('Equipo: 6 personas - Módulo DAW - ¡Fin de la presentación!')">
+                    <i class="fas fa-flag-checkered"></i> Finalizar Presentación
+                </button>
             </div>
         </section>
 
