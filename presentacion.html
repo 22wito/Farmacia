@@ -70,6 +70,25 @@
             flex-direction: column;
         }
 
+        #starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .slide-container {
+            z-index: 1;
+        }
+
+        /* Ensure all children of slides share the same transition */
+        .slide>* {
+            transition: opacity 0.4s ease-in-out;
+        }
+
         .bg-animated {
             position: absolute;
             top: 0;
@@ -967,23 +986,80 @@
         <section class="slide">
             <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 4: El Impacto Daw</div>
 
+            <h2 class="text-center mb-4" style="font-size: 2.2rem;"><i class="fas fa-layer-group"
+                    style="color: var(--neon-green);"></i> La Barrera: <span class="highlight-green">Entornos</span>
+            </h2>
+            <p class="text-center text-muted" style="font-size: 1.1rem; margin-bottom: 30px;">¿Por qué caen páginas
+                vitales estatales? A menudo porque un desarrollador subió código <em>"para probar"</em> directamente.
+            </p>
 
-            <div class="glass-panel">
-                <h2 class="text-center highlight-green mb-4">La Barrera: Entornos (Prod vs Dev)</h2>
-                <div class="notes-hint text-left">
-                    <strong>Explicar al aula:</strong>
-                    <ul class="list-styled">
-                        <li>¿Por qué caen páginas vitales estatales? A menudo porque un desarrollador subió código "para
-                            probar".</li>
-                        <li><strong>Entorno Desarrollo:</strong> El PC del programador (con bases de datos inventadas,
-                            "John Doe").</li>
-                        <li><strong>Entorno Staging (Pruebas):</strong> Un servidor idéntico al real donde revisa el
-                            titular de farmacia, aislado.</li>
-                        <li><strong>Entorno Producción:</strong> El servidor final. <strong>NUNCA</strong> se toca
-                            código aquí a mano, solo se hace despliegue por pipelines (CI/CD) automáticos y seguros.
-                        </li>
-                    </ul>
+            <div
+                style="display: flex; align-items: stretch; justify-content: center; gap: 0; max-width: 1050px; margin: 0 auto;">
+                <!-- DEV -->
+                <div
+                    style="flex: 1; background: rgba(56,189,248,0.08); border: 1px solid rgba(56,189,248,0.25); border-radius: 16px 0 0 16px; padding: 2rem 1.5rem; text-align: center; position: relative;">
+                    <div
+                        style="width: 70px; height: 70px; border-radius: 50%; background: rgba(56,189,248,0.15); border: 2px solid var(--neon-blue); display: flex; align-items: center; justify-content: center; margin: 0 auto 15px;">
+                        <i class="fas fa-laptop-code" style="font-size: 1.8rem; color: var(--neon-blue);"></i>
+                    </div>
+                    <h3 style="color: var(--neon-blue); font-size: 1.3rem; margin-bottom: 10px;">Desarrollo</h3>
+                    <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6;">El PC del programador. Bases de
+                        datos inventadas, usuarios <em>"John Doe"</em>. Aquí se rompe todo sin consecuencias.</p>
+                    <div
+                        style="margin-top: 12px; background: rgba(56,189,248,0.1); border-radius: 8px; padding: 8px; font-size: 0.8rem; color: var(--neon-blue);">
+                        <i class="fas fa-flask"></i> Experimentación libre
+                    </div>
                 </div>
+
+                <!-- Arrow 1 -->
+                <div style="display: flex; align-items: center; justify-content: center; width: 50px; flex-shrink: 0;">
+                    <i class="fas fa-chevron-right" style="font-size: 1.5rem; color: #475569;"></i>
+                </div>
+
+                <!-- STAGING -->
+                <div
+                    style="flex: 1; background: rgba(234,179,8,0.08); border: 1px solid rgba(234,179,8,0.25); border-radius: 0; padding: 2rem 1.5rem; text-align: center; position: relative;">
+                    <div
+                        style="width: 70px; height: 70px; border-radius: 50%; background: rgba(234,179,8,0.15); border: 2px solid #eab308; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px;">
+                        <i class="fas fa-vial" style="font-size: 1.8rem; color: #eab308;"></i>
+                    </div>
+                    <h3 style="color: #eab308; font-size: 1.3rem; margin-bottom: 10px;">Staging (Pruebas)</h3>
+                    <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6;">Servidor idéntico al real, aislado.
+                        El titular de farmacia revisa aquí antes de subir nada al sistema real.</p>
+                    <div
+                        style="margin-top: 12px; background: rgba(234,179,8,0.1); border-radius: 8px; padding: 8px; font-size: 0.8rem; color: #eab308;">
+                        <i class="fas fa-eye"></i> Revisión obligatoria
+                    </div>
+                </div>
+
+                <!-- Arrow 2 -->
+                <div style="display: flex; align-items: center; justify-content: center; width: 50px; flex-shrink: 0;">
+                    <i class="fas fa-chevron-right" style="font-size: 1.5rem; color: #475569;"></i>
+                </div>
+
+                <!-- PROD -->
+                <div
+                    style="flex: 1; background: rgba(52,211,153,0.08); border: 1px solid rgba(52,211,153,0.25); border-radius: 0 16px 16px 0; padding: 2rem 1.5rem; text-align: center; position: relative;">
+                    <div
+                        style="width: 70px; height: 70px; border-radius: 50%; background: rgba(52,211,153,0.15); border: 2px solid var(--neon-green); display: flex; align-items: center; justify-content: center; margin: 0 auto 15px;">
+                        <i class="fas fa-server" style="font-size: 1.8rem; color: var(--neon-green);"></i>
+                    </div>
+                    <h3 style="color: var(--neon-green); font-size: 1.3rem; margin-bottom: 10px;">Producción</h3>
+                    <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6;"><strong
+                            style="color: var(--neon-red);">NUNCA</strong> se toca código a mano. Solo despliegue
+                        automático por pipelines CI/CD seguros.</p>
+                    <div
+                        style="margin-top: 12px; background: rgba(52,211,153,0.1); border-radius: 8px; padding: 8px; font-size: 0.8rem; color: var(--neon-green);">
+                        <i class="fas fa-lock"></i> Intocable manualmente
+                    </div>
+                </div>
+            </div>
+
+            <div
+                style="max-width: 1050px; margin: 20px auto 0; background: rgba(251,113,133,0.08); border: 1px solid rgba(251,113,133,0.2); border-radius: 10px; padding: 12px 20px; text-align: center;">
+                <p style="color: #fb7185; font-size: 0.95rem;"><i class="fas fa-triangle-exclamation"></i> <strong>Subir
+                        código sin pasar por staging</strong> es como dar un medicamento sin comprobar la fecha de
+                    caducidad.</p>
             </div>
         </section>
 
@@ -1421,11 +1497,13 @@
                 // Mostrar Info recovery
                 let div = document.createElement('div');
                 div.id = 'recoveryMessage';
-                div.style.position = 'absolute'; div.style.bottom = '20px'; div.style.left = '50%'; div.style.transform = 'translateX(-50%)';
-                div.style.background = 'rgba(52, 211, 153, 0.2)'; div.style.padding = '10px 20px'; div.style.borderRadius = '20px';
-                div.style.color = 'var(--neon-green)'; div.style.fontWeight = 'bold';
-                div.innerHTML = '<i class="fas fa-shield-check"></i> Tráfico Balanceado a Contenedor 2 (Tiempo Caída: 0.1s)';
-                document.querySelector('.demo-canvas').appendChild(div);
+                div.style.textAlign = 'center'; div.style.marginTop = '15px';
+                div.style.background = 'rgba(52, 211, 153, 0.15)'; div.style.padding = '12px 25px'; div.style.borderRadius = '12px';
+                div.style.border = '1px solid rgba(52,211,153,0.3)';
+                div.style.color = 'var(--neon-green)'; div.style.fontWeight = 'bold'; div.style.fontSize = '1rem';
+                div.innerHTML = '<i class="fas fa-shield-halved"></i> Tráfico Balanceado a Contenedor 2 (Tiempo Caída: 0.1s)';
+                // Insert AFTER the demo-canvas, not inside it
+                document.querySelector('.demo-canvas').parentNode.insertBefore(div, document.querySelector('.demo-canvas').nextSibling);
 
                 document.getElementById('resetBtn').style.display = 'inline-flex';
             }, 1500);
@@ -1487,6 +1565,61 @@
             }
         }
 
+    </script>
+
+    <!-- Animated Starfield Background -->
+    <canvas id="starfield"></canvas>
+    <script>
+        (function () {
+            const canvas = document.getElementById('starfield');
+            const ctx = canvas.getContext('2d');
+            let stars = [];
+            const NUM_STARS = 120;
+
+            function resize() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resize);
+            resize();
+
+            for (let i = 0; i < NUM_STARS; i++) {
+                stars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    r: Math.random() * 1.5 + 0.3,
+                    speed: Math.random() * 0.3 + 0.05,
+                    alpha: Math.random() * 0.6 + 0.2,
+                    pulse: Math.random() * Math.PI * 2
+                });
+            }
+
+            function draw() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                for (let s of stars) {
+                    s.pulse += 0.01 + s.speed * 0.02;
+                    s.y -= s.speed;
+                    if (s.y < -5) { s.y = canvas.height + 5; s.x = Math.random() * canvas.width; }
+                    const flicker = 0.5 + 0.5 * Math.sin(s.pulse);
+                    const a = s.alpha * flicker;
+                    // Subtle blue/cyan tint
+                    const hue = 190 + Math.random() * 30;
+                    ctx.beginPath();
+                    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+                    ctx.fillStyle = `hsla(${hue}, 80%, 75%, ${a})`;
+                    ctx.fill();
+                    // Glow
+                    if (s.r > 1) {
+                        ctx.beginPath();
+                        ctx.arc(s.x, s.y, s.r * 3, 0, Math.PI * 2);
+                        ctx.fillStyle = `hsla(${hue}, 80%, 75%, ${a * 0.1})`;
+                        ctx.fill();
+                    }
+                }
+                requestAnimationFrame(draw);
+            }
+            draw();
+        })();
     </script>
 </body>
 
