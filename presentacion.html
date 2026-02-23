@@ -584,166 +584,281 @@
 
         <!-- Slide 1: Portada -->
         <section class="slide active">
-            <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 1: Marco del Proyecto</div>
+            <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 1: Choque de Realidades</div>
 
 
             <div class="glass-panel text-center" style="padding: 5rem 3rem;">
                 <p
                     style="text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px; color: var(--neon-green);">
-                    Despliegue de Aplicaciones Web</p>
-                <h1 class="highlight-blue" style="font-size: 5rem; margin-bottom: 20px; line-height: 1.1;">Impacto
-                    Crítico del Despliegue<br>en Sistemas Farmacéuticos</h1>
-                <p style="font-size: 1.5rem; color: var(--text-muted); margin-bottom: 50px;">Un error técnico cuesta
-                    vidas. La tecnología que nos sostiene.</p>
+                    Realidad Tecnológica en Farmacia</p>
+                <h1 class="highlight-blue" style="font-size: 4rem; margin-bottom: 20px; line-height: 1.1;">Vosotros
+                    salváis vidas.<br>Nosotros os mantenemos en el siglo XXI.</h1>
+                <p style="font-size: 1.5rem; color: var(--text-muted); margin-bottom: 50px;">Sin nuestra infraestructura
+                    informática detrás (Despliegue), volvéis a la Edad Media y la farmacia se paraliza.</p>
                 <button class="btn" onclick="nextSlide()">
                     Iniciar Presentación <i class="fas fa-play"></i>
                 </button>
             </div>
         </section>
 
-        <!-- Slide 2: El Sector Farmacéutico -->
+        <!-- Slide 2: Triángulo de la Seguridad (VISUAL) -->
         <section class="slide">
-            <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 1: Marco del Proyecto</div>
+            <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 1: Informática Crítica</div>
 
+            <h2 class="text-center highlight-blue mb-4" style="font-size: 3rem;">El Triángulo de la Seguridad</h2>
+            <p class="text-center text-muted" style="font-size: 1.2rem; margin-bottom: 2rem;">La base sobre la que se
+                sustenta toda la infraestructura informática del sector sanitario.</p>
 
-            <h2 class="text-center highlight-blue" style="font-size: 3.5rem;">El Sector Farmacéutico de Hoy</h2>
-            <p class="text-center text-muted mb-4" style="font-size: 1.3rem;">Ya no son pequeñas tiendas de barrio, son
-                terminales sanitarias de alta disponibilidad.</p>
-
-            <div class="grid-3 mt-4">
-                <div class="stat-card">
-                    <i class="fas fa-file-waveform mb-2" style="font-size: 2rem; color: var(--text-muted);"></i>
-                    <div class="stat-number">100%</div>
-                    <h3>Receta Electrónica</h3>
-                    <p class="text-muted mt-2">Dependencia total de la validación del estado por internet. Si no hay
-                        conexión, paciente sin medicación.</p>
+            <!-- Triángulo visual con CSS -->
+            <div
+                style="display: flex; justify-content: center; align-items: flex-start; gap: 0; margin-top: 1rem; position: relative;">
+                <!-- Vértice superior -->
+                <div style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); z-index: 2;">
+                    <div
+                        style="background: rgba(52, 211, 153, 0.15); border: 2px solid var(--neon-green); border-radius: 20px; padding: 2rem 2.5rem; text-align: center; width: 320px; box-shadow: 0 0 30px rgba(52, 211, 153, 0.2);">
+                        <i class="fas fa-clock"
+                            style="font-size: 3rem; color: var(--neon-green); margin-bottom: 10px; display: block;"></i>
+                        <h3 style="color: var(--neon-green); font-size: 1.4rem; margin-bottom: 8px;">Disponibilidad</h3>
+                        <p style="color: #cbd5e1; font-size: 1rem;">Alta disponibilidad 24/7. La farmacia
+                            <strong>nunca</strong> puede decir «sistema caído».
+                        </p>
+                    </div>
                 </div>
-                <div class="stat-card">
-                    <i class="fas fa-cubes mb-2" style="font-size: 2rem; color: var(--text-muted);"></i>
-                    <div class="stat-number">24h</div>
-                    <h3>Rotación de Stock</h3>
-                    <p class="text-muted mt-2">Los mayoristas reponen pedidos diariamente. El software debe
-                        sincronizarse perfectamente en tiempo real.</p>
+                <!-- Líneas del triángulo con SVG -->
+                <svg width="700" height="380" viewBox="0 0 700 380" style="margin-top: 30px;" fill="none">
+                    <line x1="350" y1="30" x2="100" y2="320" stroke="rgba(255,255,255,0.08)" stroke-width="2"
+                        stroke-dasharray="8 4" />
+                    <line x1="350" y1="30" x2="600" y2="320" stroke="rgba(255,255,255,0.08)" stroke-width="2"
+                        stroke-dasharray="8 4" />
+                    <line x1="100" y1="320" x2="600" y2="320" stroke="rgba(255,255,255,0.08)" stroke-width="2"
+                        stroke-dasharray="8 4" />
+                    <!-- Icono central -->
+                    <text x="350" y="215" text-anchor="middle" fill="rgba(255,255,255,0.06)" font-size="80"
+                        font-family="Font Awesome 6 Free" font-weight="900">&#xf132;</text>
+                </svg>
+                <!-- Vértice inferior izquierdo -->
+                <div style="position: absolute; bottom: 0; left: 8%; z-index: 2;">
+                    <div
+                        style="background: rgba(56, 189, 248, 0.15); border: 2px solid var(--neon-blue); border-radius: 20px; padding: 2rem 2.5rem; text-align: center; width: 300px; box-shadow: 0 0 30px rgba(56, 189, 248, 0.2);">
+                        <i class="fas fa-shield-halved"
+                            style="font-size: 3rem; color: var(--neon-blue); margin-bottom: 10px; display: block;"></i>
+                        <h3 style="color: var(--neon-blue); font-size: 1.4rem; margin-bottom: 8px;">Confidencialidad
+                        </h3>
+                        <p style="color: #cbd5e1; font-size: 1rem;">Nadie ajeno puede leer tratamientos, historiales ni
+                            datos sensibles.</p>
+                    </div>
                 </div>
-                <div class="stat-card">
-                    <i class="fas fa-gavel mb-2" style="font-size: 2rem; color: var(--text-muted);"></i>
-                    <div class="stat-number">LOPD</div>
-                    <h3>Privacidad Crítica</h3>
-                    <p class="text-muted mt-2">Datos de tratamientos psiquiátricos, oncológicos e históricos médicos en
-                        las bases de datos de dispensación.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Slide 3: El Reto y los Riesgos -->
-        <section class="slide">
-            <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 1: Marco del Proyecto</div>
-
-
-            <div class="glass-panel text-center">
-                <h2>El Reto Tecnológico Real</h2>
-                <div class="notes-hint text-left">
-                    <strong>Puntos de exposición (Guía Ponente 1):</strong>
-                    <ul class="list-styled">
-                        <li><i class="fas fa-times-circle"></i> Un farmacéutico no puede permitirse que la web responda
-                            lento <em>(impacta en las colas de las farmacias)</em>.</li>
-                        <li><i class="fas fa-times-circle"></i> No es un e-commerce. Si Amazon se cae, pierdes ventas;
-                            si esto se cae, <strong>al margen del negocio, hay un riesgo de salud pública</strong>.</li>
-                        <li><i class="fas fa-arrow-right"></i> Por ello, diseñamos "PharmaSys Pro" pensado 100% para ser
-                            desplegado bajo metodologías infalibles de DAW.</li>
-                    </ul>
+                <!-- Vértice inferior derecho -->
+                <div style="position: absolute; bottom: 0; right: 8%; z-index: 2;">
+                    <div
+                        style="background: rgba(251, 113, 133, 0.15); border: 2px solid var(--neon-red); border-radius: 20px; padding: 2rem 2.5rem; text-align: center; width: 300px; box-shadow: 0 0 30px rgba(251, 113, 133, 0.2);">
+                        <i class="fas fa-bullseye"
+                            style="font-size: 3rem; color: var(--neon-red); margin-bottom: 10px; display: block;"></i>
+                        <h3 style="color: var(--neon-red); font-size: 1.4rem; margin-bottom: 8px;">Integridad</h3>
+                        <p style="color: #cbd5e1; font-size: 1rem;">Lo que receta el médico es exactamente lo que se
+                            dispensa. Sin errores.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- ====================== PERSONA 2 (5-10 MINS) ====================== -->
 
-        <!-- Slide 4: Presentación de PharmaSys -->
+        <!-- Slide 3: Aplicaciones específicas de farmacia -->
         <section class="slide">
-            <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 2: La Solución (Aplicación)</div>
+            <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 2: Ecosistema del Software</div>
 
+            <h2 class="text-center highlight-blue" style="font-size: 3rem;">Las Herramientas del Día a Día</h2>
+            <p class="text-center text-muted mb-4" style="font-size: 1.2rem;">El software real con el que trabajáis a
+                diario en las farmacias españolas.</p>
 
-            <h2 class="text-center highlight-blue" style="font-size: 3rem;">PharmaSys Pro</h2>
-            <p class="text-center text-muted mb-4">La solución de software diseñada por y para la dispensación ágil.</p>
-
-            <div class="grid-2">
-                <div class="glass-panel">
-                    <h3>¿Qué es y qué resolvemos?</h3>
-                    <ul class="list-styled mt-4">
-                        <li><i class="fas fa-check-circle"></i> Aplicación Web de gestión de pacientes.</li>
-                        <li><i class="fas fa-check-circle"></i> Interfaz directa a los servidores de la Seguridad Social
-                            del Estado.</li>
-                        <li><i class="fas fa-check-circle"></i> Integración paralela con bases de datos de almacén.</li>
-                        <li><i class="fas fa-bolt"></i> Desarrollado sobre un stack web moderno y ligero.</li>
-                    </ul>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; margin-top: 2rem;">
+                <!-- Farmatic -->
+                <div style="background: linear-gradient(135deg, rgba(56,189,248,0.1), rgba(15,23,42,0.8)); border: 1px solid rgba(56,189,248,0.3); border-radius: 20px; padding: 2rem 1.5rem; text-align: center; transition: all 0.3s; cursor: default;"
+                    onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 15px 40px rgba(56,189,248,0.2)'"
+                    onmouseout="this.style.transform=''; this.style.boxShadow=''">
+                    <div
+                        style="width: 90px; height: 90px; margin: 0 auto 15px; background: rgba(56,189,248,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-prescription-bottle-medical"
+                            style="font-size: 2.5rem; color: var(--neon-blue);"></i>
+                    </div>
+                    <h3 style="color: var(--neon-blue); font-size: 1.5rem; margin-bottom: 8px;">Farmatic</h3>
+                    <p style="color: #94a3b8; font-size: 0.95rem;">Gestión integral de oficina de farmacia. Líder en
+                        España.</p>
                 </div>
-                <div class="text-center" style="display: flex; align-items: center; justify-content: center;">
-                    <i class="fas fa-laptop-medical highlight-green"
-                        style="font-size: 15rem; filter: drop-shadow(0 0 30px rgba(52, 211, 153, 0.4));"></i>
+                <!-- Famanager -->
+                <div style="background: linear-gradient(135deg, rgba(251,191,36,0.1), rgba(15,23,42,0.8)); border: 1px solid rgba(251,191,36,0.3); border-radius: 20px; padding: 2rem 1.5rem; text-align: center; transition: all 0.3s; cursor: default;"
+                    onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 15px 40px rgba(251,191,36,0.2)'"
+                    onmouseout="this.style.transform=''; this.style.boxShadow=''">
+                    <div
+                        style="width: 90px; height: 90px; margin: 0 auto 15px; background: rgba(251,191,36,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-chart-line" style="font-size: 2.5rem; color: #fbbf24;"></i>
+                    </div>
+                    <h3 style="color: #fbbf24; font-size: 1.5rem; margin-bottom: 8px;">Famanager</h3>
+                    <p style="color: #94a3b8; font-size: 0.95rem;">Solución en la nube para gestión y analítica
+                        farmacéutica.</p>
+                </div>
+                <!-- Nixfarma -->
+                <div style="background: linear-gradient(135deg, rgba(52,211,153,0.1), rgba(15,23,42,0.8)); border: 1px solid rgba(52,211,153,0.3); border-radius: 20px; padding: 2rem 1.5rem; text-align: center; transition: all 0.3s; cursor: default;"
+                    onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 15px 40px rgba(52,211,153,0.2)'"
+                    onmouseout="this.style.transform=''; this.style.boxShadow=''">
+                    <div
+                        style="width: 90px; height: 90px; margin: 0 auto 15px; background: rgba(52,211,153,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-capsules" style="font-size: 2.5rem; color: var(--neon-green);"></i>
+                    </div>
+                    <h3 style="color: var(--neon-green); font-size: 1.5rem; margin-bottom: 8px;">Nixfarma</h3>
+                    <p style="color: #94a3b8; font-size: 0.95rem;">Especializado en dispensación y control de
+                        estupefacientes.</p>
+                </div>
+                <!-- Unycop Win -->
+                <div style="background: linear-gradient(135deg, rgba(251,113,133,0.1), rgba(15,23,42,0.8)); border: 1px solid rgba(251,113,133,0.3); border-radius: 20px; padding: 2rem 1.5rem; text-align: center; transition: all 0.3s; cursor: default;"
+                    onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 15px 40px rgba(251,113,133,0.2)'"
+                    onmouseout="this.style.transform=''; this.style.boxShadow=''">
+                    <div
+                        style="width: 90px; height: 90px; margin: 0 auto 15px; background: rgba(251,113,133,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                        <i class="fab fa-windows" style="font-size: 2.5rem; color: var(--neon-red);"></i>
+                    </div>
+                    <h3 style="color: var(--neon-red); font-size: 1.5rem; margin-bottom: 8px;">Unycop Win</h3>
+                    <p style="color: #94a3b8; font-size: 0.95rem;">Plataforma Windows de gestión con módulos de
+                        facturación.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Slide 5: El Mockup UI Clínico -->
+        <!-- Slide 4: Under the hood - qué información manejan -->
         <section class="slide">
-            <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 2: La Solución (Aplicación)</div>
+            <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 2: Under the Hood</div>
 
+            <h2 class="text-center mb-4" style="font-size: 2.5rem;">Bajo la Superficie: <span class="highlight-blue">No
+                    son solo interfaces bonitas</span></h2>
 
-            <h2 class="text-center mb-4">Interfaz del Operador (UI/UX)</h2>
-            <div class="mockup-container" style="max-width: 900px; margin: 0 auto;">
-                <div class="mockup-header">
-                    <div style="font-weight: bold; color: var(--neon-blue);"><i class="fas fa-plus-square"></i>
-                        PharmaSys Pro v2.4</div>
-                    <div style="color: #94a3b8; font-size: 0.9rem;">Operador: Titular de Farmacia</div>
-                </div>
-                <div class="mockup-body">
-                    <div class="patient-info">
-                        <h4 style="color: var(--text-muted); margin-bottom: 15px;">DNI Paciente: 0987445-X</h4>
-                        <p><strong>Estado Tarjeta Sanit.:</strong> <span class="highlight-green">Verificado O.K.</span>
-                        </p>
-                        <p class="mt-4 mb-2"><strong>Tratamiento Pendiente de Retirada:</strong></p>
-                        <ul style="margin-left: 20px; color: #cbd5e1; font-size: 1.1rem; line-height: 1.5;">
-                            <li><i class="fas fa-pills" style="color: var(--neon-blue);"></i> Sintrom (Acenocumarol) 4mg
-                            </li>
-                            <li><i class="fas fa-pills" style="color: var(--neon-blue);"></i> Metformina 850mg comp.
-                            </li>
-                        </ul>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 30px; margin-top: 1rem;">
+                <!-- Columna izquierda: La app -->
+                <div style="text-align: center; flex-shrink: 0;">
+                    <div
+                        style="background: rgba(56,189,248,0.1); border: 2px solid var(--neon-blue); border-radius: 20px; padding: 2rem 2.5rem; width: 220px;">
+                        <i class="fas fa-desktop"
+                            style="font-size: 3rem; color: var(--neon-blue); margin-bottom: 10px; display: block;"></i>
+                        <h3 style="font-size: 1.2rem;">App de Farmacia</h3>
+                        <p style="color: #94a3b8; font-size: 0.85rem;">(Farmatic, Nixfarma...)</p>
                     </div>
-                    <div class="recipe-info">
-                        <h4 style="color: var(--text-muted); margin-bottom: 10px;">Lectura de Código de Barras</h4>
-                        <div
-                            style="background: rgba(0,0,0,0.3); padding: 25px; border-radius: 5px; text-align: center; border: 1px dashed #64748b;">
-                            <i class="fas fa-barcode" style="font-size: 3rem; color: #94a3b8; margin-bottom: 15px;"></i>
-                            <p id="mockupStatusText">Esperando escaneo de producto...</p>
+                </div>
+
+                <!-- Flechas -->
+                <div style="display: flex; flex-direction: column; gap: 25px; color: var(--text-muted);">
+                    <i class="fas fa-arrows-left-right" style="font-size: 2rem;"></i>
+                </div>
+
+                <!-- Columna derecha: Los destinos -->
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <div
+                        style="background: rgba(52,211,153,0.1); border: 1px solid rgba(52,211,153,0.3); border-radius: 12px; padding: 1.2rem 2rem; display: flex; align-items: center; gap: 15px;">
+                        <i class="fas fa-landmark" style="font-size: 2rem; color: var(--neon-green);"></i>
+                        <div>
+                            <h4 style="color: var(--neon-green); margin-bottom: 4px;">Servidores del Gobierno</h4>
+                            <p style="color: #94a3b8; font-size: 0.9rem;">Receta electrónica, validación en tiempo real
+                                con el Ministerio de Sanidad.</p>
                         </div>
-                        <button class="mockup-btn" id="simulateValidationBtn" onclick="simulateAppLoad()"
-                            style="font-size: 1.2rem; padding: 15px;">
-                            <i class="fas fa-crosshairs"></i> Validar Dispensación
-                        </button>
+                    </div>
+                    <div
+                        style="background: rgba(56,189,248,0.1); border: 1px solid rgba(56,189,248,0.3); border-radius: 12px; padding: 1.2rem 2rem; display: flex; align-items: center; gap: 15px;">
+                        <i class="fas fa-warehouse" style="font-size: 2rem; color: var(--neon-blue);"></i>
+                        <div>
+                            <h4 style="color: var(--neon-blue); margin-bottom: 4px;">BBDD Almacén / Mayoristas</h4>
+                            <p style="color: #94a3b8; font-size: 0.9rem;">Stock en tiempo real, pedidos automáticos,
+                                rotación diaria con proveedores.</p>
+                        </div>
+                    </div>
+                    <div
+                        style="background: rgba(251,113,133,0.1); border: 1px solid rgba(251,113,133,0.3); border-radius: 12px; padding: 1.2rem 2rem; display: flex; align-items: center; gap: 15px;">
+                        <i class="fas fa-user-shield" style="font-size: 2rem; color: var(--neon-red);"></i>
+                        <div>
+                            <h4 style="color: var(--neon-red); margin-bottom: 4px;">BBDD Usuarios / Medicamentos</h4>
+                            <p style="color: #94a3b8; font-size: 0.9rem;">Historiales, tratamientos psiquiátricos,
+                                oncológicos... datos LOPD críticos.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Slide 6: El proceso por detrás -->
+        <!-- Slide 5: Interfaz interactiva de farmacia realista -->
         <section class="slide">
-            <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 2: La Solución (Aplicación)</div>
+            <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 2: Demo Interactiva</div>
 
-
-            <div class="glass-panel text-center">
-                <h2>¿Qué pasa al pulsar ese botón?</h2>
-                <div class="notes-hint text-left">
-                    <strong>Recorrido del dato (Guía Ponente 2):</strong>
-                    <ul class="list-styled">
-                        <li>1️⃣ El botón ejecuta JavaScript que lanza una petición AJAX/API hacia nuestro servidor
-                            backend.</li>
-                        <li>2️⃣ Nuestro backend envía un ping al Ministerio de Sanidad para anular la receta y validar
-                            la compra.</li>
-                        <li>3️⃣ Resta el stock de nuestra Base de Datos (SQL/NoSQL) de la farmacia local.</li>
-                        <li><strong>Conclusión:</strong> El software es la punta del iceberg. Sin una infraestructura
-                            que soporte los millones de peticiones por segundo (Despliegue DAW), la interfaz más bonita
-                            del mundo no sirve de nada.</li>
-                    </ul>
+            <h2 class="text-center mb-4" style="font-size: 2.2rem;">Simulación: <span
+                    class="highlight-blue">Dispensación en Farmacia</span></h2>
+            <div class="mockup-container" id="pharmacyApp" style="max-width: 1000px; margin: 0 auto;">
+                <div class="mockup-header">
+                    <div
+                        style="font-weight: bold; color: var(--neon-blue); display: flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-prescription-bottle-medical"></i> Farmatic v8.2 — Dispensación
+                    </div>
+                    <div id="appServerStatus"
+                        style="color: var(--neon-green); font-size: 0.85rem; display: flex; align-items: center; gap: 6px;">
+                        <i class="fas fa-circle" style="font-size: 0.5rem;"></i> Servidor Conectado
+                    </div>
+                </div>
+                <div style="padding: 20px 25px; display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
+                    <!-- Columna izquierda: Datos pre-rellenados -->
+                    <div>
+                        <h4 style="color: var(--neon-blue); margin-bottom: 14px; font-size: 1.05rem;"><i
+                                class="fas fa-user-circle"></i> Datos del Paciente</h4>
+                        <div style="margin-bottom: 10px;">
+                            <label
+                                style="color: #94a3b8; font-size: 0.75rem; display: block; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 1px;">DNI
+                                / NIE</label>
+                            <div
+                                style="background: #0f172a; padding: 10px 14px; border-radius: 8px; border: 1px solid var(--neon-blue); color: var(--neon-blue); font-family: 'Courier New', monospace; font-size: 0.95rem;">
+                                12345678-A</div>
+                        </div>
+                        <div style="margin-bottom: 10px;">
+                            <label
+                                style="color: #94a3b8; font-size: 0.75rem; display: block; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 1px;">Tarjeta
+                                Sanitaria</label>
+                            <div
+                                style="background: #0f172a; padding: 10px 14px; border-radius: 8px; border: 1px solid var(--neon-green); color: var(--neon-green); font-size: 0.95rem;">
+                                <i class="fas fa-check-circle"></i> Verificada — S.S. Activa
+                            </div>
+                        </div>
+                        <div>
+                            <label
+                                style="color: #94a3b8; font-size: 0.75rem; display: block; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 1px;">Nombre
+                                del Paciente</label>
+                            <div
+                                style="background: #0f172a; padding: 10px 14px; border-radius: 8px; border: 1px solid var(--neon-blue); color: var(--text-main); font-size: 0.95rem;">
+                                García López, María</div>
+                        </div>
+                    </div>
+                    <!-- Columna derecha: Búsqueda de medicamento -->
+                    <div>
+                        <h4 style="color: var(--neon-blue); margin-bottom: 14px; font-size: 1.05rem;"><i
+                                class="fas fa-pills"></i> Dispensación de Medicamento</h4>
+                        <div style="margin-bottom: 10px;">
+                            <label
+                                style="color: #94a3b8; font-size: 0.75rem; display: block; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 1px;">Medicamento
+                                a dispensar</label>
+                            <input type="text" id="appMedInput" placeholder="Escribe aquí: Ej. Ibuprofeno 600mg"
+                                style="width: 100%; background: #0f172a; padding: 10px 14px; border-radius: 8px; border: 1px solid var(--neon-blue); color: var(--text-main); font-size: 0.95rem; font-family: var(--font-body); outline: none; transition: border-color 0.3s; box-sizing: border-box;"
+                                onfocus="this.style.borderColor='var(--neon-green)'"
+                                onblur="this.style.borderColor='var(--neon-blue)'">
+                        </div>
+                        <div id="appResultPanel"
+                            style="background: #0f172a; padding: 14px; border-radius: 8px; border: 1px solid #334155; min-height: 50px; display: flex; align-items: center; justify-content: center; color: #64748b; font-size: 0.9rem; margin-bottom: 10px;">
+                            <span><i class="fas fa-info-circle"></i> Escriba el medicamento y elija una opción de
+                                búsqueda.</span>
+                        </div>
+                        <div style="display: flex; gap: 10px;">
+                            <button class="mockup-btn" id="btnBuscarTarjeta" onclick="buscarEnTarjeta()"
+                                style="flex: 1; font-size: 0.95rem; padding: 11px; border-radius: 8px; background: var(--neon-blue);">
+                                <i class="fas fa-id-card"></i> Buscar en Tarjeta
+                            </button>
+                            <button class="mockup-btn" id="btnBuscarStock" onclick="buscarEnStock()"
+                                style="flex: 1; font-size: 0.95rem; padding: 11px; border-radius: 8px; background: var(--neon-green); display: none;">
+                                <i class="fas fa-warehouse"></i> Buscar en Farmacia
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -961,6 +1076,97 @@
             </div>
         </section>
 
+        <!-- Slide: App funcionando tras resolución Docker -->
+        <section class="slide">
+            <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 5: Resultado de la Resiliencia</div>
+
+            <h2 class="text-center mb-4" style="font-size: 2.2rem;"><span class="highlight-green">Resultado:</span> La
+                aplicación vuelve a funcionar</h2>
+            <div class="mockup-container" style="max-width: 1000px; margin: 0 auto;">
+                <div class="mockup-header">
+                    <div
+                        style="font-weight: bold; color: var(--neon-blue); display: flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-prescription-bottle-medical"></i> Farmatic v8.2 — Dispensación
+                    </div>
+                    <div
+                        style="color: var(--neon-green); font-size: 0.85rem; display: flex; align-items: center; gap: 6px;">
+                        <i class="fas fa-circle" style="font-size: 0.5rem;"></i> Nodo Secundario Activo (Docker)
+                    </div>
+                </div>
+                <div style="padding: 25px; display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
+                    <div>
+                        <h4 style="color: var(--neon-blue); margin-bottom: 18px; font-size: 1.1rem;"><i
+                                class="fas fa-user-circle"></i> Datos del Paciente</h4>
+                        <div style="margin-bottom: 14px;">
+                            <label
+                                style="color: #94a3b8; font-size: 0.8rem; display: block; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px;">DNI
+                                / NIE</label>
+                            <div
+                                style="background: #0f172a; padding: 12px 16px; border-radius: 8px; border: 1px solid var(--neon-green); color: var(--neon-blue); font-family: 'Courier New', monospace; font-size: 1rem;">
+                                12345678-A</div>
+                        </div>
+                        <div style="margin-bottom: 14px;">
+                            <label
+                                style="color: #94a3b8; font-size: 0.8rem; display: block; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px;">Tarjeta
+                                Sanitaria</label>
+                            <div
+                                style="background: #0f172a; padding: 12px 16px; border-radius: 8px; border: 1px solid var(--neon-green); color: var(--neon-green); font-size: 1rem;">
+                                <i class="fas fa-check-circle"></i> Verificada
+                            </div>
+                        </div>
+                        <div>
+                            <label
+                                style="color: #94a3b8; font-size: 0.8rem; display: block; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px;">Nombre
+                                del Paciente</label>
+                            <div
+                                style="background: #0f172a; padding: 12px 16px; border-radius: 8px; border: 1px solid var(--neon-green); color: var(--text-main); font-size: 1rem;">
+                                García López, María</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--neon-green); margin-bottom: 18px; font-size: 1.1rem;"><i
+                                class="fas fa-check-double"></i> Resultado de Dispensación</h4>
+                        <div id="resultadoFinal"
+                            style="background: rgba(52,211,153,0.08); padding: 20px; border-radius: 12px; border: 1px solid rgba(52,211,153,0.3); min-height: 180px;">
+                            <div
+                                style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <i class="fas fa-pills" style="font-size: 1.8rem; color: var(--neon-green);"></i>
+                                <div>
+                                    <div id="resultMedName"
+                                        style="font-size: 1.2rem; font-weight: bold; color: var(--text-main);">
+                                        Medicamento</div>
+                                    <div style="color: #94a3b8; font-size: 0.85rem;">Receta electrónica validada por el
+                                        Ministerio</div>
+                                </div>
+                            </div>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.9rem;">
+                                <div style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 6px;"><span
+                                        style="color: #94a3b8;">Stock:</span> <span
+                                        style="color: var(--neon-green);">Disponible (42 uds.)</span></div>
+                                <div style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 6px;"><span
+                                        style="color: #94a3b8;">Estado:</span> <span
+                                        style="color: var(--neon-green);"><i class="fas fa-check"></i> Dispensado</span>
+                                </div>
+                                <div style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 6px;"><span
+                                        style="color: #94a3b8;">Servidor:</span> <span
+                                        style="color: var(--neon-blue);">Nodo B (Docker)</span></div>
+                                <div style="background: rgba(0,0,0,0.2); padding: 10px; border-radius: 6px;"><span
+                                        style="color: #94a3b8;">Latencia:</span> <span
+                                        style="color: var(--neon-green);">0.12s</span></div>
+                            </div>
+                        </div>
+                        <div
+                            style="margin-top: 15px; background: rgba(52,211,153,0.1); border: 1px solid rgba(52,211,153,0.2); border-radius: 8px; padding: 12px 16px; text-align: center;">
+                            <p style="color: var(--neon-green); font-size: 1rem;"><i class="fas fa-shield-halved"></i>
+                                <strong>Gracias al Despliegue DAW</strong>, el Proxy Nginx derivó la petición al Nodo B
+                                automáticamente. El paciente <strong>SÍ</strong> se lleva su medicación.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ====================== PERSONA 6 (25-30 MINS) ====================== -->
 
         <!-- Slide 15: Instrucciones Dinámica -->
@@ -989,16 +1195,15 @@
             <div class="quiz-container text-center">
                 <h2 style="font-size: 2.5rem; margin-bottom: 30px;">Pregunta 1</h2>
                 <div class="glass-panel" style="padding: 2rem;">
-                    <h3 style="font-size: 1.6rem; color: var(--neon-blue); margin-bottom: 25px;">Según la arquitectura
-                        explicada, ¿quién actúa como el "armario estanco" evitando que si explota una parte del programa
-                        arrastre a las demás?</h3>
+                    <h3 style="font-size: 1.6rem; color: var(--neon-blue); margin-bottom: 25px;">¿Cuál es el concepto
+                        que define la capacidad del sistema de resistir y recuperarse ante un fallo inminente?</h3>
                     <div class="options-grid" id="q1-options">
-                        <button class="quiz-btn" onclick="checkBtn(this, false, 'q1-options')">A) El Servidor Ubuntu
-                            (Linux)</button>
-                        <button class="quiz-btn" onclick="checkBtn(this, true, 'q1-options')">B) Los Contenedores Docker
-                            virtualizados</button>
-                        <button class="quiz-btn" onclick="checkBtn(this, false, 'q1-options')">C) La base de datos
-                            MySQL</button>
+                        <button class="quiz-btn" onclick="checkBtn(this, false, 'q1-options')">A) Balanceo de carga
+                            DNS</button>
+                        <button class="quiz-btn" onclick="checkBtn(this, true, 'q1-options')">B) Resiliencia de
+                            Software</button>
+                        <button class="quiz-btn" onclick="checkBtn(this, false, 'q1-options')">C) Cifrado de datos
+                            asimétrico</button>
                     </div>
                 </div>
             </div>
@@ -1010,16 +1215,15 @@
             <div class="quiz-container text-center">
                 <h2 style="font-size: 2.5rem; margin-bottom: 30px;">Pregunta 2</h2>
                 <div class="glass-panel" style="padding: 2rem;">
-                    <h3 style="font-size: 1.6rem; color: var(--neon-blue); margin-bottom: 25px;">En la simulación
-                        anterior, ¿gracias a QUÉ tecnología podemos derivar el tráfico automáticamente al Contenedor 2
-                        si rompe el 1?</h3>
+                    <h3 style="font-size: 1.6rem; color: var(--neon-blue); margin-bottom: 25px;">¿Es importante mantener
+                        los datos de los clientes privados y cómo lo logramos al desplegar?</h3>
                     <div class="options-grid" id="q2-options">
-                        <button class="quiz-btn" onclick="checkBtn(this, true, 'q2-options')">A) El Proxy Inverso
-                            Servidor Nginx (Balanceo)</button>
-                        <button class="quiz-btn" onclick="checkBtn(this, false, 'q2-options')">B) El archivo .env
-                            (Variables de Entorno)</button>
-                        <button class="quiz-btn" onclick="checkBtn(this, false, 'q2-options')">C) El Frontend hecho con
-                            HTML/JavaScript</button>
+                        <button class="quiz-btn" onclick="checkBtn(this, false, 'q2-options')">A) Solo es importante en
+                            bancos, la farmacia usa conexiones simples.</button>
+                        <button class="quiz-btn" onclick="checkBtn(this, true, 'q2-options')">B) Sí, es crítico (LOPD),
+                            mediante HTTPS, Certificados y seguridad en Nginx.</button>
+                        <button class="quiz-btn" onclick="checkBtn(this, false, 'q2-options')">C) Sí, escondiendo el
+                            servidor físico debajo del mostrador.</button>
                     </div>
                 </div>
             </div>
@@ -1031,15 +1235,15 @@
             <div class="quiz-container text-center">
                 <h2 style="font-size: 2.5rem; margin-bottom: 30px;">Pregunta 3</h2>
                 <div class="glass-panel" style="padding: 2rem;">
-                    <h3 style="font-size: 1.6rem; color: var(--neon-blue); margin-bottom: 25px;">La regla de oro de los
-                        entornos dice que el desarrollador Junior NUNCA debe tocar directamente el entorno de...</h3>
+                    <h3 style="font-size: 1.6rem; color: var(--neon-blue); margin-bottom: 25px;">En la simulación
+                        interactiva, ¿qué pasó en la Fase A al caer la base de datos sin Arquitectura DAW?</h3>
                     <div class="options-grid" id="q3-options">
-                        <button class="quiz-btn" onclick="checkBtn(this, false, 'q3-options')">A) Entorno Local /
-                            Desarrollo</button>
-                        <button class="quiz-btn" onclick="checkBtn(this, false, 'q3-options')">B) Entorno de Staging
-                            (Pruebas)</button>
-                        <button class="quiz-btn" onclick="checkBtn(this, true, 'q3-options')">C) Entorno de Producción
-                            Final (Usuarios reales)</button>
+                        <button class="quiz-btn" onclick="checkBtn(this, false, 'q3-options')">A) No pasó nada, el
+                            sistema avisó al siguiente farmacéutico.</button>
+                        <button class="quiz-btn" onclick="checkBtn(this, false, 'q3-options')">B) Saltó una advertencia
+                            menor pero permitió dispensar el medicamento.</button>
+                        <button class="quiz-btn" onclick="checkBtn(this, true, 'q3-options')">C) Ocurrió un Error 500
+                            bloqueante y el paciente no se pudo llevar su medicación.</button>
                     </div>
                 </div>
             </div>
@@ -1063,6 +1267,21 @@
             </div>
         </section>
 
+    </div>
+
+    <!-- Error Modal Overlay (OUTSIDE slides, fixed position) -->
+    <div id="errorModal"
+        style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(6px); z-index: 9999; align-items: center; justify-content: center;">
+        <div id="errorModalContent"
+            style="background: #1e293b; border: 2px solid var(--neon-red); border-radius: 16px; padding: 2.5rem; max-width: 480px; width: 90%; text-align: center; box-shadow: 0 0 80px rgba(251,113,133,0.4);">
+            <i id="errorModalIcon" class="fas fa-server"
+                style="font-size: 3.5rem; color: var(--neon-red); margin-bottom: 12px;"></i>
+            <h2 id="errorModalTitle" style="color: var(--neon-red); font-size: 1.8rem; margin-bottom: 10px;">Error</h2>
+            <p id="errorModalText" style="color: #cbd5e1; font-size: 1rem; line-height: 1.6; margin-bottom: 20px;"></p>
+            <button id="errorModalBtn" onclick="dismissError()"
+                style="background: var(--neon-red); color: #fff; border: none; padding: 12px 35px; border-radius: 50px; font-size: 1rem; cursor: pointer; font-weight: bold; transition: all 0.3s;"><i
+                    class="fas fa-times"></i> Cerrar</button>
+        </div>
     </div>
 
     <!-- SCRIPT / FUNCIONALIDADES -->
@@ -1095,27 +1314,98 @@
         });
 
         // -------------------------
-        // UI Mockup Logic
+        // Pharmacy App Interactive Logic (2 buttons: Tarjeta→404, Stock→500)
         // -------------------------
-        function simulateAppLoad() {
-            const btn = document.getElementById('simulateValidationBtn');
-            const txt = document.getElementById('mockupStatusText');
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Conectando al Ministerio...';
-            btn.style.background = '#eab308'; // amarillo
-            txt.innerHTML = 'Enviando JSON Seguro...';
+        let userMedication = '';
+        let errorGoNext = false;
+
+        function buscarEnTarjeta() {
+            userMedication = document.getElementById('appMedInput').value.trim() || 'Ibuprofeno 600mg';
+            const btn = document.getElementById('btnBuscarTarjeta');
+            const panel = document.getElementById('appResultPanel');
+            btn.disabled = true; btn.style.opacity = '0.5'; btn.style.pointerEvents = 'none';
+            document.getElementById('appMedInput').disabled = true;
+            panel.innerHTML = '<span style="color: #eab308"><i class="fas fa-spinner fa-spin"></i> Buscando <strong>' + userMedication + '</strong> en la tarjeta sanitaria del paciente...</span>';
 
             setTimeout(() => {
-                btn.innerHTML = '<i class="fas fa-check-double"></i> Dispensado (Stock Actualizado)';
-                btn.style.background = 'var(--neon-blue)';
-                txt.innerHTML = '<span class="highlight-green">Receta anulada y validada en Sanidad.</span>';
-
-                setTimeout(() => {
-                    btn.innerHTML = '<i class="fas fa-crosshairs"></i> Validar Dispensación';
-                    btn.style.background = 'var(--neon-green)';
-                    txt.innerHTML = 'Esperando escaneo de producto...';
-                }, 4000);
-            }, 2500);
+                // Show 404 error
+                showErrorModal(
+                    'fas fa-search',
+                    'Error 404 — Not Found',
+                    'var(--neon-red)',
+                    'El medicamento <strong>' + userMedication + '</strong> no se ha encontrado en la tarjeta sanitaria del paciente.<br><br><span style="color: #eab308">¿Qué significa? El servidor del Ministerio NO encuentra ese recurso en la base de datos asociada a esta tarjeta.</span>',
+                    'Cerrar',
+                    false
+                );
+                panel.innerHTML = '<span style="color: var(--neon-red)"><i class="fas fa-times-circle"></i> <strong>' + userMedication + '</strong> no encontrado en tarjeta. Pruebe a buscar directamente en el stock de la farmacia.</span>';
+                // Show the second button
+                document.getElementById('btnBuscarStock').style.display = 'flex';
+                btn.innerHTML = '<i class="fas fa-times-circle"></i> No encontrado';
+                btn.style.background = 'rgba(251,113,133,0.2)';
+                btn.style.borderColor = 'var(--neon-red)';
+                btn.style.color = 'var(--neon-red)';
+            }, 1800);
         }
+
+        function buscarEnStock() {
+            const btn = document.getElementById('btnBuscarStock');
+            const panel = document.getElementById('appResultPanel');
+            btn.disabled = true; btn.style.opacity = '0.5'; btn.style.pointerEvents = 'none';
+            panel.innerHTML = '<span style="color: #eab308"><i class="fas fa-spinner fa-spin"></i> Buscando <strong>' + userMedication + '</strong> en el stock de la farmacia...</span>';
+
+            setTimeout(() => {
+                panel.innerHTML = '<span style="color: #eab308"><i class="fas fa-spinner fa-spin"></i> Conectando con BBDD de stock...</span>';
+                setTimeout(() => {
+                    // Show 500 error
+                    showErrorModal(
+                        'fas fa-server',
+                        'Error 500 — Internal Server Error',
+                        'var(--neon-red)',
+                        'El servidor backend se ha caído. La base de datos no responde.<br><br>El paciente <strong>NO puede llevarse su medicación.</strong><br><br><span style="color: #eab308">Sin infraestructura de Despliegue (Balanceo, Docker), todo el servicio se paraliza.</span>',
+                        'Ver cómo DAW lo soluciona →',
+                        true
+                    );
+                    document.getElementById('appServerStatus').innerHTML = '<i class="fas fa-circle" style="font-size: 0.5rem; color: var(--neon-red);"></i> <span style="color: var(--neon-red)">SERVIDOR CAÍDO</span>';
+                    panel.innerHTML = '<span style="color: var(--neon-red)"><i class="fas fa-skull-crossbones"></i> <strong>SERVIDOR CAÍDO</strong> — Imposible acceder al stock.</span>';
+                }, 1200);
+            }, 1000);
+        }
+
+        function showErrorModal(iconClass, title, borderColor, text, btnText, goNext) {
+            const modal = document.getElementById('errorModal');
+            const content = document.getElementById('errorModalContent');
+            document.getElementById('errorModalIcon').className = iconClass;
+            document.getElementById('errorModalTitle').textContent = title;
+            document.getElementById('errorModalText').innerHTML = text;
+            document.getElementById('errorModalBtn').innerHTML = '<i class="fas ' + (goNext ? 'fa-arrow-right' : 'fa-times') + '"></i> ' + btnText;
+            content.style.borderColor = borderColor;
+            document.getElementById('errorModalIcon').style.color = borderColor;
+            document.getElementById('errorModalTitle').style.color = borderColor;
+            document.getElementById('errorModalBtn').style.background = borderColor;
+            modal.style.display = 'flex';
+            errorGoNext = goNext;
+        }
+
+        function dismissError() {
+            document.getElementById('errorModal').style.display = 'none';
+            if (errorGoNext) {
+                nextSlide();
+            }
+        }
+
+        // Fill the result slide's medication name when navigating
+        function updateResultSlide() {
+            const medName = userMedication || 'Medicamento';
+            const el = document.getElementById('resultMedName');
+            if (el) el.textContent = medName;
+        }
+
+        // Override updateSlides to inject result data
+        const originalUpdateSlides = updateSlides;
+        updateSlides = function () {
+            originalUpdateSlides();
+            updateResultSlide();
+        };
 
         // -------------------------
         // Crash Demo Logic
