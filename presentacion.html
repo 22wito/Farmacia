@@ -171,7 +171,7 @@
             height: 85%;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+            transition: opacity 0.4s ease-in-out, transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
             transform: translateZ(-200px) translateY(50px) rotateX(-5deg);
             display: flex;
             flex-direction: column;
@@ -236,30 +236,24 @@
         }
 
         .speaker-badge {
-            position: absolute;
-            top: 20px;
-            left: 20px;
+            align-self: center;
+            margin-bottom: 25px;
+            /* Crea espacio entre la placa y el H1/H2 */
             font-family: var(--font-title);
             font-size: 1rem;
             color: var(--neon-blue);
             border: 1px solid var(--neon-blue-glow);
-            padding: 8px 20px;
+            padding: 8px 30px;
             border-radius: 20px;
-            background: rgba(56, 189, 248, 0.1);
+            background: rgba(56, 189, 248, 0.2) !important;
             letter-spacing: 1px;
             text-transform: uppercase;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            white-space: nowrap;
         }
 
-        .timer-badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-family: var(--font-title);
-            font-size: 1rem;
-            color: var(--text-muted);
-            padding: 8px 20px;
-            border-radius: 20px;
-        }
+
 
         /* Utilidades Slide */
         .text-center {
@@ -589,7 +583,7 @@
         <!-- Slide 1: Portada -->
         <section class="slide active">
             <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 1: Marco del Proyecto</div>
-            <div class="timer-badge">~ 1 min</div>
+
 
             <div class="glass-panel text-center" style="padding: 5rem 3rem;">
                 <p
@@ -608,7 +602,7 @@
         <!-- Slide 2: El Sector Farmacéutico -->
         <section class="slide">
             <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 1: Marco del Proyecto</div>
-            <div class="timer-badge">~ 2 min</div>
+
 
             <h2 class="text-center highlight-blue" style="font-size: 3.5rem;">El Sector Farmacéutico de Hoy</h2>
             <p class="text-center text-muted mb-4" style="font-size: 1.3rem;">Ya no son pequeñas tiendas de barrio, son
@@ -642,7 +636,7 @@
         <!-- Slide 3: El Reto y los Riesgos -->
         <section class="slide">
             <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 1: Marco del Proyecto</div>
-            <div class="timer-badge">~ 2 min</div>
+
 
             <div class="glass-panel text-center">
                 <h2>El Reto Tecnológico Real</h2>
@@ -665,7 +659,7 @@
         <!-- Slide 4: Presentación de PharmaSys -->
         <section class="slide">
             <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 2: La Solución (Aplicación)</div>
-            <div class="timer-badge">~ 1.5 min</div>
+
 
             <h2 class="text-center highlight-blue" style="font-size: 3rem;">PharmaSys Pro</h2>
             <p class="text-center text-muted mb-4">La solución de software diseñada por y para la dispensación ágil.</p>
@@ -691,7 +685,7 @@
         <!-- Slide 5: El Mockup UI Clínico -->
         <section class="slide">
             <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 2: La Solución (Aplicación)</div>
-            <div class="timer-badge">~ 2 min</div>
+
 
             <h2 class="text-center mb-4">Interfaz del Operador (UI/UX)</h2>
             <div class="mockup-container" style="max-width: 900px; margin: 0 auto;">
@@ -732,7 +726,7 @@
         <!-- Slide 6: El proceso por detrás -->
         <section class="slide">
             <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 2: La Solución (Aplicación)</div>
-            <div class="timer-badge">~ 1.5 min</div>
+
 
             <div class="glass-panel text-center">
                 <h2>¿Qué pasa al pulsar ese botón?</h2>
@@ -757,7 +751,7 @@
         <!-- Slide 7: Desmitificando el Despliegue -->
         <section class="slide">
             <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 3: Arquitectura Técnica</div>
-            <div class="timer-badge">~ 1.5 min</div>
+
 
             <h2 class="text-center highlight-blue" style="font-size: 3.5rem;">Arquitectura del Sistema</h2>
             <p class="text-center text-muted mb-4" style="font-size: 1.2rem;">Traduciendo el Despliegue Técnico a
@@ -787,7 +781,7 @@
         <!-- Slide 8: Análisis de Componentes Físicos -->
         <section class="slide">
             <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 3: Arquitectura Técnica</div>
-            <div class="timer-badge">~ 2 min</div>
+
 
             <h2 class="text-center mb-4">El Motor: Linux y Docker</h2>
             <div class="grid-2">
@@ -811,7 +805,7 @@
         <!-- Slide 9: Tráfico y Seguridad -->
         <section class="slide">
             <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 3: Arquitectura Técnica</div>
-            <div class="timer-badge">~ 1.5 min</div>
+
 
             <div class="glass-panel">
                 <h2 class="highlight-green mb-4"><i class="fas fa-shield-halved"></i> Gestión de Tráfico y Seguridad
@@ -838,7 +832,7 @@
         <!-- Slide 10: ¿Qué ocurre con un Error 500? -->
         <section class="slide">
             <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 4: El Impacto Daw</div>
-            <div class="timer-badge">~ 1.5 min</div>
+
 
             <div class="text-center" style="margin-top: 5rem;">
                 <i class="fas fa-triangle-exclamation"
@@ -860,7 +854,7 @@
         <!-- Slide 11: Plan de Contingencia DAW -->
         <section class="slide">
             <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 4: El Impacto Daw</div>
-            <div class="timer-badge">~ 2 min</div>
+
 
             <h2 class="text-center highlight-blue mb-4">Medidas Críticas de DAW</h2>
             <div class="grid-2">
@@ -883,7 +877,7 @@
         <!-- Slide 12: Entornos -->
         <section class="slide">
             <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 4: El Impacto Daw</div>
-            <div class="timer-badge">~ 1.5 min</div>
+
 
             <div class="glass-panel">
                 <h2 class="text-center highlight-green mb-4">La Barrera: Entornos (Prod vs Dev)</h2>
@@ -909,7 +903,7 @@
         <!-- Slide 13: La Resiliencia -->
         <section class="slide">
             <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 5: Simulación (Demo)</div>
-            <div class="timer-badge">~ 2 min</div>
+
 
             <h2 class="text-center highlight-blue mb-4" style="font-size: 3.5rem;">Concepto de Resiliencia Informatica
             </h2>
@@ -926,7 +920,7 @@
         <!-- Slide 14: LA DEMO INTERACTIVA -->
         <section class="slide">
             <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 5: Simulación (Demo)</div>
-            <div class="timer-badge">~ 3 min</div>
+
 
             <h2 class="text-center">Simulación Visual: <span class="highlight-green">Balanceo de Carga Nginx +
                     Docker</span></h2>
@@ -970,7 +964,7 @@
         <!-- Slide 15: Instrucciones Dinámica -->
         <section class="slide">
             <div class="speaker-badge"><i class="fas fa-microphone"></i> Ponente 6: Dinámica Interactiva y Cierre</div>
-            <div class="timer-badge">~ 1 min</div>
+
 
             <div class="text-center glass-panel">
                 <h1 class="highlight-blue" style="font-size: 4rem;"><i class="fas fa-gamepad"></i> Dinámica de
