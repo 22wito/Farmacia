@@ -1150,7 +1150,7 @@
                 // Activar Server 2
                 server2.style.opacity = '1';
                 server2.className = 'server-box server-ok';
-                server2.border = '2px solid var(--neon-green)';
+                server2.style.border = '2px solid var(--neon-green)';
                 line2.style.display = 'block';
 
                 // Mostrar Info recovery
@@ -1159,7 +1159,7 @@
                 div.style.position = 'absolute'; div.style.bottom = '20px'; div.style.left = '50%'; div.style.transform = 'translateX(-50%)';
                 div.style.background = 'rgba(52, 211, 153, 0.2)'; div.style.padding = '10px 20px'; div.style.borderRadius = '20px';
                 div.style.color = 'var(--neon-green)'; div.style.fontWeight = 'bold';
-                div.innerHTML = '<i class="fas fa-shield-check"></i> Tráfico Balaceado a Contenedor 2 (Tiempo Caída: 0.1s)';
+                div.innerHTML = '<i class="fas fa-shield-check"></i> Tráfico Balanceado a Contenedor 2 (Tiempo Caída: 0.1s)';
                 document.querySelector('.demo-canvas').appendChild(div);
 
                 document.getElementById('resetBtn').style.display = 'inline-flex';
